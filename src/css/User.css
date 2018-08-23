@@ -1,0 +1,175 @@
+.fade-enter-active, .fade-leave-active {
+    transition: all .5s;
+    animation: righttoleft 0.5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    animation: lefttoright 0.5s;
+  }
+  @keyframes lefttoright {
+      0%{
+          left: 10px;
+      }
+      100%{
+          left: 0;
+      }
+  }
+  @keyframes righttoleft{
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: 10px;
+    }
+  }
+  .animationstart1{
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+  .animationstart2{
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+  }
+  .animationstart3{
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+  }
+  .animationstart4{
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+  }
+  .animationstart5{
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+  .animationstart6{
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+  }
+
+  @-webkit-keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+              transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 1;
+    }
+  }
+  @keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+              transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 1;
+    }
+  }
+  
+  tr th{
+    text-align: center;
+  }
+  .containsearch{
+    transition: all 0.5s;cursor: pointer;
+    border-radius: 5px;width: 40px; height: 40px; background: #3F7FFA; position: absolute; left: 0px; bottom: 8px;line-height: 33px;
+  }
+  .containsearch:hover{
+background: rgba(46, 95, 185, 1);
+transform: scale(1.15);
+  }  
+  .containsearch{
+    transition: all 0.5s;cursor: pointer;
+    border-radius: 5px;width: 40px; height: 40px; background: #3F7FFA; position: absolute; left: 0px; bottom: 8px;line-height: 33px;
+  }
+  .containsearch:hover{
+background: rgba(46, 95, 185, 1);
+transform: scale(1.15);
+  }
+
+  .containsearch2{
+    transition: all 0.5s;cursor: pointer;
+    border-radius: 5px;width: 40px; height: 40px; background: #3F7FFA; position: absolute; left: 30px; bottom: 8px;line-height: 33px;
+  }
+  .containsearch2:hover{
+background: rgba(46, 95, 185, 1);
+transform: scale(1.15);
+  }
+
+  #status1{
+    background: #00e676;
+    animation: loopcolorgreen 2s infinite;
+    color: white;
+  }
+
+  #status0{
+    background: #ff3d00;
+    animation: loopcolorred 2s infinite;
+    color: white;
+  }
+
+@keyframes loopcolorgreen {
+    0%{
+        background-color:rgba(0, 230, 118,1);
+    }
+    50%{
+        background-color:rgba(0, 230, 118,0.5);
+    }
+    100%{
+        background-color:rgba(0, 230, 118,1);
+    }
+}
+@keyframes loopcolorred {
+    0%{
+        background-color:rgba(255, 61, 0,1);
+    }
+    50%{
+        background-color:rgba(255, 61, 0,0.5);
+    }
+    100%{
+        background-color:rgba(255, 61, 0,1);
+    }
+}
+
+.fontawecolorgreen{
+  color:green;font-size:20px;position:relative;transition: all 0.5s;
+  cursor: pointer;
+}
+.fontawecolorred{
+  color:red;font-size:20px;position:relative;transition: all 0.5s;
+  cursor: pointer;
+
+}
+.fontawecolorred:hover{
+    color:red !important;
+    transform: scale(1.35);
+}
+.fontawecolorgreen:hover{
+  color:green !important;
+  transform: scale(1.35);
+}
