@@ -169,11 +169,72 @@ textarea::placeholder {
     color:green;font-size:20px;position:relative;transition: all 0.5s;
     cursor: pointer;
   }
+  .fontmodal{
+    color:#69F0AE;font-size:20px;position:absolute;transition: all 0.5s;
+    cursor: pointer;left: -10px;top: 20px;
+  }
   .fontawecolorred{
     color:red;font-size:20px;position:relative;transition: all 0.5s;
     cursor: pointer;
 
   }
+ /* editcss in modal */
+ #first_name[type=text]:not(.browser-default){
+  border-bottom: 1px solid #f06292 !important;
+ }
+ #first_name.valid[type=text]:not(.browser-default){
+  box-shadow: 0 1px 0 0  #f06292 !important;;
+ }
+
+ #first_name:focus{
+    border-bottom: 1px solid #f06292 !important;
+  }
+  #first_name:not(.browser-default):focus:not([readonly]){
+    -webkit-box-shadow: 0 1px 0 0 #f06292!important; 
+     box-shadow: 0 1px 0 0 #f06292 !important; 
+  }
+  .input-field  #first_name:focus + label {
+    color: #f06292 !important;
+ }
+
+ #sur_name[type=text]:not(.browser-default){
+  border-bottom: 1px solid #f06292 !important;
+ }
+ #sur_name.valid[type=text]:not(.browser-default){
+  box-shadow: 0 1px 0 0  #f06292 !important;
+ }
+ #sur_name:focus{
+    border-bottom: 1px solid #f06292 !important;
+  }
+  #sur_name:not(.browser-default):focus:not([readonly]){
+    -webkit-box-shadow: 0 1px 0 0 #f06292!important; 
+     box-shadow: 0 1px 0 0 #f06292 !important; 
+  }
+  .input-field  #sur_name:focus + label {
+    color: #f06292 !important;
+ }
+
+ #description[type=text]:not(.browser-default){
+  border-bottom: 1px solid #f06292 !important;
+ }
+ #description.valid[type=text]:not(.browser-default){
+  box-shadow: 0 1px 0 0  #f06292 !important;;
+ }
+  #description:focus{
+    border-bottom: 1px solid #f06292 !important;
+  }
+  #description:not(.browser-default):focus:not([readonly]){
+    -webkit-box-shadow: 0 1px 0 0 #f06292 !important; 
+     box-shadow: 0 1px 0 0 #f06292 !important; 
+  }
+  .input-field  #description:focus + label {
+    color: #f06292 !important;
+ }
+  .validate:focus~.fontmodal{
+      color: #f06292;
+    transform: scale(1.25);
+  }
+/* editcss in modal */
   .fontawecolorred:hover{
       color:red !important;
       transform: scale(1.35);

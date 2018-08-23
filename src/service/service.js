@@ -125,5 +125,14 @@ export default {
       (response) => {
         error(response)
       })
-  },  
+  },
+  insertmenu(data, success, error) {
+    Vue.axios.post(URL + ':9000/menu' , JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },      
 }

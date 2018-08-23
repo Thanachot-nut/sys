@@ -37,11 +37,11 @@
           </tr>
         </thead>  
         <tbody  >
-          <tr id="tr" v-for="datas in contentobj"  @click="showinfo(datas)" data-toggle="modal" data-target="#showinfomodal" >
-            <td>{{ datas.app_code}}</td>
-             <td>{{ datas.description}}</td>
-            <td><div :class="bg = 'status'+datas.active_status" style="width:100%;height:100%;color:white;" align="center">{{ returnactive(datas.active_status) }}</div></td>
-            <td style="position:relative;width:10%;text-align:center"> <font-awesome-icon v-show="datas.active_status == 0" class="fontawecolorgreen" @click="onapp(datas)" icon="check" />
+          <tr id="tr" v-for="datas in contentobj"   >
+            <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal">{{ datas.app_code}}</td>
+             <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal">{{ datas.description}}</td>
+            <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal"><div :class="bg = 'status'+datas.active_status" style="width:100%;height:100%;color:white;" align="center">{{ returnactive(datas.active_status) }}</div></td>
+            <td style="position:relative;text-align:center"> <font-awesome-icon v-show="datas.active_status == 0" class="fontawecolorgreen" @click="onapp(datas)" icon="check" />
              <font-awesome-icon v-show="datas.active_status == 1" class="fontawecolorred" @click="turnoffapp(datas)"  icon="ban" /></td>
             </tr>
         </tbody>
@@ -95,7 +95,7 @@
 
 <!-- showinfo modal -->
 <div class="modal fade" id="showinfomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" style="max-width: 70%;" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" align="center">
         <h5 class="modal-title animationtextf" id="exampleModalLabel">{{ topicmodal }}</h5>
@@ -104,7 +104,34 @@
         </button>
       </div>
       <div class="modal-body">
-         <button type="button" class="btn green accent-2 animationtext1">เพิ่มเมนู</button>
+         <button @click="togglemenufun" type="button" class="btn green accent-2 animationtext1">เพิ่มเมนู</button>
+         <div v-show="toggleaddmenu == 1">
+         <div style="width:100%;height:auto;border-top: 1px solid #e9ecef;padding-top:10px;margin-top:10px;">
+            <div class="row" style="margin-left:5px;">
+        <div class="input-field col s6 animationtext1">
+           
+          <input id="first_name" v-model="addmenucode" style="width:95%" type="text" class="validate">
+          <label for="first_name">Menu Code</label>
+            <font-awesome-icon class="fontmodal" style="left: -15px;" icon="unlock" />
+        </div>
+        <div class="input-field col s6 animationtext2">
+             
+          <input id="sur_name" v-model="addmenuname" style="width:95%" type="text" class="validate">
+          <label for="sur_name">Menu Name</label>
+          <font-awesome-icon class="fontmodal" style="left: -15px;"  icon="user" />
+        </div>
+      </div>
+        <div class="input-field col s12 animationtext3" style="border-bottom: 1px solid #e9ecef;padding-bottom:10px;text-align:center;" >
+         
+          <input id="description" v-model="addmenudescription" style="width:98.5%" type="text" class="validate">
+          <label for="description" style="left: 15px;">Description</label>
+          <font-awesome-icon class="fontmodal" style="left: -2px;"  icon="info"  />
+           <button type="button"  class="btn pink lighten-2" @click="addmenusub" >บันทึกข้อมูล</button>
+        </div>
+          
+          </div>
+   
+         </div>
        <table class="highlight responsive-table animationtext2" style="border:2px solid rgba(0,0,0,0.25);margin-top:10px;float:left;">
         <thead>
           <tr >
@@ -146,7 +173,7 @@
       <div class="modal-footer animationtext4">
         
         <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button>
-        <button type="button" class="btn green accent-2" @click="newapp">Save</button>
+        <!-- <button type="button" class="btn green accent-2" @click="newapp">Save</button> -->
       </div>
     </div>
   </div>

@@ -16,7 +16,11 @@ export default {
       detailc:'',
       contentmodal:[],
       topicmodal:'',
-      sendobj:[]
+      sendobj:[],
+      toggleaddmenu:0,
+      addmenucode:'',
+      addmenuname:'',
+      addmenudescription:'',
     }
   },
   methods: {
@@ -197,6 +201,9 @@ export default {
      }
     },
     showinfo(val){
+      // close content add modal
+      this.toggleaddmenu = 0
+      // 
       this.sendobj = val
       console.log('showinfo :' +JSON.stringify(val))
       this.topicmodal = val.app_code
@@ -271,8 +278,43 @@ export default {
           M.toast({ html: toastHTML });
           this.cload()
         })
+    },
+    togglemenufun(){
+      if(this.toggleaddmenu === 1){
+        this.toggleaddmenu = 0
+      }else if(this.toggleaddmenu === 0){
+        this.toggleaddmenu = 1
+      }
+    },
+    addmenusub(){
+
+        var payload = {  
+          menu_code:this.addmenucode,
+          menu_name:this.addmenuname,
+          app_id:this.sendobj.id,
+          description:this.addmenudescription,
+          active_status:1,
+          creator_id:1
+       }
+        api.insertmenu(payload,
+          (result) => {
+            this.cload()
+            if (result.status == 'success') {
+              console.log('resultchange :' + JSON.stringify(result))
+              var toastHTML = '<span style="color:white">เพิ่มข้อมูลเมนู Success !!!</span>';
+              M.toast({ html: toastHTML });
+              this.showinfo(this.sendobj)
+              this.addmenucode = ''
+              this.addmenuname = ''
+              this.addmenudescription = ''
+            }
+          },
+          (error) => {
+            var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+            M.toast({ html: toastHTML });
+            this.cload()
+          })
     }
-    
   },
   mounted() {
     this.showcontent()

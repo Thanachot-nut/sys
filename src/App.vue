@@ -60,4 +60,13 @@ input[type=text]:not(.browser-default):focus:not([readonly])
 .progress .indeterminate {
     background-color: #00e676 !important;
 }
+@media (min-width: 576px){
+.modal-dialog {
+    max-width: 600px;
+    margin: 1.75rem auto;
+}}
+@media only screen and (max-width: 992px){
+.modal {
+    width: 100% !important;
+}}
 </style>

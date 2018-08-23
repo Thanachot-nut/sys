@@ -1,7 +1,7 @@
 <template>
   <div class="Main">
     <div class="col-12" align="center">
-      <p style="font-weight:bold;font-size:50px;">เมนู</p>
+      <p style="font-size:50px;">เมนู</p>
     </div>
 
        <div class="row">
