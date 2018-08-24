@@ -12,10 +12,36 @@ export default {
       usercode_add: '',
       username_add: '',
       password_add: '',
-      phone_add: ''
+      phone_add: '',
+      page:0,
+      prevpage: 0,
+      nextpage: 25,
+      coloractive:'',
+      activeItem:0,
     }
   },
   methods: {
+    // prevpageb () {
+    //   if(this.activeItem > 0){
+    //     this.activeItem--
+    //   }
+      
+    //   if (this.prevpage <= 0 || this.nextpage <= 25) {
+    //     this.prevpage = 0
+    //     this.nextpage = 25
+    //     this.showall()
+    //   } else {
+    //     this.prevpage -= 25
+    //     this.nextpage -= 25
+    //     this.showall()
+    //   }
+    // },
+    // nextpageb () {
+    //   this.activeItem++
+    //   this.prevpage += 25
+    //   this.nextpage += 25
+    //   this.showall()
+    // },
     getuser() {
       this.load()
 
@@ -95,8 +121,14 @@ export default {
       api.showalluser(this.usercode,
         (result) => {
           this.cload()
-              console.log('Search showall :' + JSON.stringify(result))
-              this.objuser = result
+              // console.log('Search showall :' + JSON.stringify(result))
+              console.log('result length ::' +result.length)
+              var page = (result.length)/25
+            console.log('page :'+page)
+            this.page = parseInt(page)+1
+            
+              this.objuser = result.slice(this.prevpage, this.nextpage)
+
               console.log(JSON.stringify(this.objuser))
                   // var toastHTML = '<span style="color:white">ค้นหา ' + usercode + ' สำเร็จ </span>';
                   // M.toast({ html: toastHTML })
@@ -174,9 +206,23 @@ export default {
             M.toast({ html: toastHTML });
             this.cload()
           })
+      },
+      clickpage(val){
+        this.coloractive = val
+
+        this.activeItem = val;
+      var numpage = (val);
+      var result = 25*numpage
+      console.log(result)
+      this.prevpage = 0 + result,
+      this.nextpage = 25 + result,
+      this.showall()
+     // console.log('activeitem : '+this.activeItem)
+
       }
   },
   mounted () {
+    this.coloractive = 0
              this.showall()
   }
 }

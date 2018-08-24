@@ -170,6 +170,10 @@ transform: scale(1.15);
     transform: scale(1.35);
 }
 .fontawecolorgreen:hover{
-  color:green !important;
+  color:green !important;   
   transform: scale(1.35);
+}
+ul:not(.browser-default) > li {
+  list-style-type: none;
+  border: 1px solid #42a5f5;
 }

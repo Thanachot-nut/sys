@@ -7,7 +7,7 @@ import router from './router'
 import '../node_modules/materialize-css/dist/css/materialize.css'
 import '../node_modules/materialize-css/dist/js/materialize'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee, faUser, faKey, faSearch, faPlus, faStop, faTerminal, faTag, faCheck, faBan, faInfo, faPen, faSignature, faUnlock, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faUser, faKey, faSearch, faPlus, faStop, faTerminal, faTag, faCheck, faBan, faInfo, faPen, faSignature, faUnlock, faPhone, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faSearch)
@@ -25,6 +25,8 @@ library.add(faPen)
 library.add(faSignature)
 library.add(faUnlock)
 library.add(faPhone)
+library.add(faChevronLeft)
+library.add(faChevronRight)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 

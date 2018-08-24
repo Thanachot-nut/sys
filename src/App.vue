@@ -69,4 +69,17 @@ input[type=text]:not(.browser-default):focus:not([readonly])
 .modal {
     width: 100% !important;
 }}
+a:hover{
+  text-decoration: none;
+  color: white !important;
+  background-color: #ee6e73 !important;
+  transform: scale(1.15)
+}
+a{
+      color: #039be5;
+      transition: all 0.5s;
+}
+.pagination li a {
+  color: #039be5;
+}
 </style>

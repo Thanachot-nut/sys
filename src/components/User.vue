@@ -90,7 +90,17 @@
         </div>
       </div>
     </transition>
-      <table class="highlight responsive-table animationstart3" style="border:2px solid rgba(0,0,0,0.25);margin-top:10px;">
+    <div   style="position: absolute; /* text-align: center; */ /* position: relative; */ transform: translateY(-50%); left: 50%;">
+     <ul class="pagination animationstart3" style="margin-top:5px;left:50%;transform:translateX(-50%);">
+     <!-- <li @click="prevpageb()" class="waves-effect"><a href="#!" style="color:#42a5f5;" ><</a></li> -->
+    <!-- <li class="active"><a href="#!"></a></li> -->
+    <ul v-for="(val,index) in page" >
+    <li class="waves-effect"  :class="{active: coloractive === index}"  @click="clickpage(index)"><a href="#!">{{val}}</a></li>
+  </ul>
+  <!-- <li @click="nextpageb()" class="waves-effect"><a href="#!" style="color:#42a5f5;">></a></li> -->
+  </ul>
+  </div>
+      <table class="highlight responsive-table animationstart4" style="border:2px solid rgba(0,0,0,0.25);margin-top:40px;">
         <thead>
           <tr>
             <th>ชื่อ</th>
@@ -109,8 +119,8 @@
             <td>{{ data.telephone}}</td>
             <td>{{ data.profitcenter_name}}</td>
             <td>{{ data.department_code}}</td>
-            <td><div :id="'status'+data.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(data.active_status) }}</div></td>
-             <td style="position:relative;width:10%;text-align:center"> <font-awesome-icon v-show="data.active_status == 0" class="fontawecolorgreen" @click="status0(data)" icon="check" />
+            <td style="text-align:center;"><div :id="'status'+data.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(data.active_status) }}</div></td>
+             <td style="position:relative;width:auto;text-align:center"> <font-awesome-icon v-show="data.active_status == 0" class="fontawecolorgreen" @click="status0(data)" icon="check" />
              <font-awesome-icon v-show="data.active_status == 1" class="fontawecolorred" @click="status1(data)"  icon="ban" /></td>
           </tr>
         </tbody>
