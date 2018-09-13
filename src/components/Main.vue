@@ -1,13 +1,14 @@
 <template>
   <div class="Main">
+    <div class="container">
     <div class="col-12" align="center">
-      <p style="font-size:50px;">เมนู</p>
+      <p style="font-size:50px;">Menu</p>
     </div>
 
        <div class="row">
     <div class="col-12 col-md-3 col-sm-6 " @click="gouser">
       <div class="card cardani1" >
-        <div class="card-image" align="center">
+        <div class="card-image images" align="center">
                     <img src="../assets/menu/001-users.png" class="cimagemenu">
           <span class="card-title" >User</span>
         </div>
@@ -22,7 +23,10 @@
     <!--  -->
     <div class="col-12 col-md-3 col-sm-6" @click="goapp">
       <div class="card cardani2">
-        <div class="card-image">
+        <div class="card-image images2" >
+          <!-- <div style="background-color:red;z-index:99;width:100%;height:100%;position:relative"></div> -->
+           <!-- <img src="../assets/natural.jpg" style="top:1px;width:105%;height:100%;position:absolute;max-width: none; max-height: none; min-width: none; min-height: none;"> -->
+     
            <img src="../assets/menu/002-smartphone.png" class="cimagemenu">
             <span class="card-title" >App</span>
         </div>
@@ -37,7 +41,7 @@
   <!--  -->
     <div class="col-12 col-md-3 col-sm-6" @click="gorole">
       <div class="card cardani3">
-        <div class="card-image">
+        <div class="card-image images3">
          <img src="../assets/menu/003-resume.png" class="cimagemenu">
             <span class="card-title" >Role</span>
         </div>
@@ -49,9 +53,9 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-3 col-sm-6">
+    <div class="col-12 col-md-3 col-sm-6" @click="goper">
       <div class="card cardani4">
-        <div class="card-image">
+        <div class="card-image images4">
          <img src="../assets/menu/004-delete.png" class="cimagemenu">
             <span class="card-title" >Permission</span>
         </div>
@@ -63,6 +67,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
   </div>
 </template>

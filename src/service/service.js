@@ -135,4 +135,85 @@ export default {
         error(response)
       })
   },      
+  callbranch( success, error) {
+    Vue.axios.get(URL + ':9000/branchs?access_token=aaaa').then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  }, 
+  calldepartments(success, error) {
+    Vue.axios.get(URL + ':9000/departments?access_token=aaaa').then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  }, 
+  callexperts(success, error) {
+    Vue.axios.get(URL + ':9000/experts?access_token=aaaa').then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  callprofitcenters(success, error) {
+    Vue.axios.get(URL + ':9000/profitcenters?access_token=aaaa').then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  callappall(success, error) {
+    Vue.axios.get(URL + ':9000/apps?access_token=aaaa').then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  apptorole(data,success, error) {
+    Vue.axios.get(URL + ':9000/app/role?access_token=aaaa&app_id=' + data).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  permissionall(role,app,success, error) {
+    Vue.axios.get(URL + ':9000/permissions?access_token=aaaa&app_id='+app+'&role_id='+role).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  updatepermis_all(data,success, error) {
+    Vue.axios.put(URL + ':9000/permission', data).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  saveapprole(data,success, error) {
+    Vue.axios.post(URL + ':9000/app/role',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
 }

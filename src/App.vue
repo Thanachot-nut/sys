@@ -19,6 +19,9 @@ export default {
     }
   },
   methods: {
+  },
+  mounted() {
+     console.log(this.$router)
   }
 }
 </script>
@@ -80,6 +83,17 @@ a{
       transition: all 0.5s;
 }
 .pagination li a {
-  color: #039be5;
+    color: #039be5 ;
+}
+.pagination li.active a {
+    color: #fff !important;
+}
+.bordercolor{
+      border: 1px solid rgba(0,0,0,0.25);
+          border-radius: 10px;
+box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
+}
+table.highlight > tbody > tr:hover {
+    background: rgba(11, 160, 247, 0.363) !important;
 }
 </style>

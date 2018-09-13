@@ -5,6 +5,7 @@ import Main from '@/components/Main'
 import User from '@/components/User'
 import Appmenu from '@/components/Appmenu'
 import Role from '@/components/Role'
+import Per from '@/components/Permission'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/role',
       name: 'Role',
       component: Role
+    },
+    {
+      path: '/permission',
+      name: 'Per',
+      component: Per
     }
   ]
 })

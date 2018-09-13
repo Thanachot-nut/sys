@@ -10,7 +10,6 @@ export default {
   },
   methods: {
     login(user, pass) {
-      
     },
     gouser(){
       this.$router.push('/user')
@@ -21,6 +20,9 @@ export default {
     gorole(){
       this.$router.push('/role')
     },
+    goper(){
+      this.$router.push('/permission')
+    }
     
   },
   mounted() {

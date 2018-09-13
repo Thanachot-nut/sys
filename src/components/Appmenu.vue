@@ -2,8 +2,8 @@
   <div class="Appmenu">
     <br>
      <div class="container">
-        <div class="animationstart1" style="text-align:center;"><h4 >เพิ่มแอพ และ จัดการเมนู</h4></div>
-         <div class="col-12 col-sm-8 col-md-8 animationstart2" style="border:2px solid rgba(0,0,0,0.25);float:left">
+        <div class="animationstart1" style="text-align:center;"><h4 >Mange App and Menu</h4></div>
+         <div class="col-12 col-sm-8 col-md-8 animationstart2 bordercolor" style="float:left">
         <!-- <div style="position:absolute;width:99%;height:120%;border:2px solid rgba(0,0,0,0.25);left:3px;top:-13px;"> </div> -->
         <div class="form-group">
             <div class="col-10 col-sm-10 col-md-10 " style="float:left">
@@ -27,7 +27,7 @@
           </button></div></div>
       </div>
       
-      <table class="highlight responsive-table animationstart3" style="border:2px solid rgba(0,0,0,0.25);margin-top:10px;float:left;">
+      <table class="highlight responsive-table animationstart3 bordercolor" style="margin-top:10px;float:left;">
         <thead>
           <tr >
             <th>ชื่อแอพ</th>
@@ -37,7 +37,7 @@
           </tr>
         </thead>  
         <tbody  >
-          <tr id="tr" v-for="datas in contentobj"   >
+          <tr id="tr" v-for="datas in contentobj"  >
             <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal">{{ datas.app_code}}</td>
              <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal">{{ datas.description}}</td>
             <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal"><div :class="bg = 'status'+datas.active_status" style="width:100%;height:100%;color:white;" align="center">{{ returnactive(datas.active_status) }}</div></td>
@@ -132,7 +132,7 @@
           </div>
    
          </div>
-       <table class="highlight responsive-table animationtext2" style="border:2px solid rgba(0,0,0,0.25);margin-top:10px;float:left;">
+       <table class="highlight responsive-table animationtext2 bordercolor" style="margin-top:10px;float:left;">
         <thead>
           <tr >
             <th>ชื่อเมนู</th>
