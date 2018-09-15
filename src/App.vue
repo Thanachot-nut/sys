@@ -83,7 +83,7 @@ a{
       transition: all 0.5s;
 }
 .pagination li a {
-    color: #039be5 ;
+    color: #039be5 !important;
 }
 .pagination li.active a {
     color: #fff !important;

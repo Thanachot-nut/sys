@@ -32,17 +32,17 @@
           <tr >
             <th>ชื่อแอพ</th>
             <th>รายละเอียด</th>
-            <th>Status</th>
-            <th>Edit</th>
+            <th>สถานะ</th>
+            <!-- <th>Edit</th> -->
           </tr>
         </thead>  
         <tbody  >
           <tr id="tr" v-for="datas in contentobj"  >
             <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal">{{ datas.app_code}}</td>
              <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal">{{ datas.description}}</td>
-            <td @click="showinfo(datas)"  data-toggle="modal" data-target="#showinfomodal"><div :class="bg = 'status'+datas.active_status" style="width:100%;height:100%;color:white;" align="center">{{ returnactive(datas.active_status) }}</div></td>
-            <td style="position:relative;text-align:center"> <font-awesome-icon v-show="datas.active_status == 0" class="fontawecolorgreen" @click="onapp(datas)" icon="check" />
-             <font-awesome-icon v-show="datas.active_status == 1" class="fontawecolorred" @click="turnoffapp(datas)"  icon="ban" /></td>
+            <td @click="onapp(datas,datas.active_status)"><div :class="bg = 'status'+datas.active_status" style="width:100%;height:100%;color:white;" align="center">{{ returnactive(datas.active_status) }}</div></td>
+            <!-- <td style="position:relative;text-align:center"> <font-awesome-icon v-show="datas.active_status == 0" class="fontawecolorgreen"  icon="check" />
+             <font-awesome-icon v-show="datas.active_status == 1" class="fontawecolorred" @click="turnoffapp(datas)"  icon="ban" /></td> -->
             </tr>
         </tbody>
       </table>
@@ -137,17 +137,14 @@
           <tr >
             <th>ชื่อเมนู</th>
             <th>รายละเอียด</th>
-            <th>Status</th>
-            <th>Edit</th>
+            <th>สถานะ</th>
           </tr>
         </thead>  
         <tbody  >
           <tr id="center" v-for="value in contentmodal" >
             <td>{{ value.menu_name}}</td>
              <td>{{ value.description}}</td>
-            <td><div :class="'status'+value.active_status" style="width:100%;height:100%;color:white;">{{ returnactive(value.active_status) }} </div></td>
-            <td style="position:relative;width:10%;text-align:center"> <font-awesome-icon v-show="value.active_status == 0" class="fontawecolorgreen" @click="statusmodal1(value)" icon="check" />
-             <font-awesome-icon v-show="value.active_status == 1" class="fontawecolorred" @click="statusmodal0(value)"  icon="ban" /></td>
+            <td @click="statusmodal1(value,value.active_status)" ><div :class="'status'+value.active_status" style="width:100%;height:100%;color:white;">{{ returnactive(value.active_status) }} </div></td>
             </tr>
         </tbody>
       </table>

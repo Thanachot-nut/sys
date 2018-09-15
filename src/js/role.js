@@ -56,15 +56,20 @@ export default {
         return x
       }
     },
-    onrole(val){
+    onrole(val,status){
       console.log('on app'+JSON.stringify(val))
       // {"editor_id":1,"id":7}
+      if(status == true){
+        status = 0
+      }else if(status == false){
+        status = 1
+      }
       this.load()
       var payload = {
         role_code : val.role_code,
         role_name : val.role_name,
         description: val.description,
-        active_status: 1,
+        active_status: status,
         editor_id: val.editor_id,
         id:val.id
       }
@@ -77,7 +82,7 @@ export default {
             console.log('resultchange :' + JSON.stringify(result))
             // console.log('Datauser'+localStorage.Datauser)
             // this.DataUser = result.data
-            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ Success !!!</span>';
+            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ !!!</span>';
             M.toast({ html: toastHTML });
             this.showroleall()
           }
@@ -111,7 +116,7 @@ export default {
             console.log('resultchange :' + JSON.stringify(result))
             // console.log('Datauser'+localStorage.Datauser)
             // this.DataUser = result.data
-            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ Success !!!</span>';
+            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ !!!</span>';
             M.toast({ html: toastHTML });
             this.showroleall()
           }

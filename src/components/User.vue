@@ -43,7 +43,7 @@
     width: 80%;" v-model="usercode_add" id="usercode_add" type="text" class="validate">
             <label style="left:96px;" for="usercode_add">Usercode</label>
           </div>
-          <div class=" col-12 col-sm-5" style="position:relative;text-align:center;white-space: nowrap;">
+          <div class=" col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
         <!-- <label for="sel1">Select list (select one):</label> -->
         กรุณาเลือกสาขา
       <select v-model="V_selectbranch" class="form-control selectadduser" name="sellist1">
@@ -63,7 +63,7 @@
     width: 80%;" v-model="username_add" id="username_add" type="text" class="validate">
             <label style="left:96px;" for="username_add">Username</label>
           </div>
-            <div class=" col-12 col-sm-5" style="position:relative;text-align:center;white-space: nowrap;">
+            <div class=" col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
         กรุณาเลือกหน่วยงาน
       <select v-model="V_department" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectdepartment" :value="val.id" >{{val.department_name}}</option>
@@ -81,7 +81,7 @@
             <input style="position:relative;left: 45px;width: 80%;" v-model="password_add" id="Password" type="text" class="validate">
             <label  style="left:96px;" for="Password">Password</label>
           </div>
-           <div class="col-12 col-sm-5" style="position:relative;text-align:center;white-space: nowrap;">
+           <div class="col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
        กรุณาเลือกแผนก
       <select v-model="V_expert" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
@@ -99,7 +99,7 @@
             <input style="position:relative;left: 45px;width: 80%;" v-model="phone_add" id="Phone" type="text" class="validate">
             <label  style="left:96px;" for="Phone">Phone</label>
           </div>
-          <div class=" col-12 col-sm-5" style="position:relative;text-align:center;white-space: nowrap;">
+          <div class=" col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
        กรุณาเลือก Profitcenters
       <select v-model="V_profitcenter" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option> 
@@ -138,25 +138,25 @@
       <table  class="highlight responsive-table animationstart4 bordercolor" style=";margin-top:40px;">
         <thead>
           <tr>
+            <th>รหัส</th>
             <th>ชื่อ</th>
-            <th>Username</th>
+            <th>รหัสผู้ใช้</th>
             <th>เบอร์โทรศัพท์</th>
             <th>สำนักงาน</th>
             <th>แผนก</th>
-            <th>Status</th>
-            <th>Edit</th>
+            <th>สถานะ</th>
+            <!-- <th>Edit</th> -->
           </tr>
         </thead>
         <tbody >
-          <tr id="tr" v-for="data in objuser" @click="detailprofile(data)"  data-toggle="modal" data-target="#detailuser">
-            <td>{{ data.user_name}}</td>
-            <td>{{ data.user_code}}</td>
-            <td>{{ data.telephone}}</td>
-            <td>{{ data.profitcenter_name}}</td>
-            <td>{{ data.department_code}}</td>
-            <td style="text-align:center;"><div :id="'status'+data.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(data.active_status) }}</div></td>
-             <td style="position:relative;width:auto;text-align:center"> <font-awesome-icon v-show="data.active_status == 0" class="fontawecolorgreen" @click="status0(data)" icon="check" />
-             <font-awesome-icon v-show="data.active_status == 1" class="fontawecolorred" @click="status1(data)"  icon="ban" /></td>
+          <tr id="tr" v-for="data in objuser"   >
+            <td style="text-align:center"  data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.sale_code}}</td>
+            <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.user_name}}</td>
+            <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.user_code}}</td>
+            <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.telephone}}</td>
+            <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.profitcenter_name}}</td>
+            <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)" >{{ data.department_code}}</td>
+            <td @click="status0(data,data.active_status)" style="text-align:center;"><div :id="'status'+data.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(data.active_status) }}</div></td>
           </tr>
         </tbody>
       </table>

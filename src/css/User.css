@@ -207,6 +207,7 @@ tbody tr{
 }
 #tr td{
   transition: all 0.25s;
+  padding:10px 5px !important;
 }
 #tr:hover td{
   background: rgba(11, 160, 247, 0.363);

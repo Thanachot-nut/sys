@@ -32,17 +32,19 @@
           <tr >
             <th>ชื่อ Role</th>
             <th>รายละเอียด</th>
-            <th>Status</th>
-            <th>Edit</th>
+            <th>สถานะ</th>
+            <!-- <th>Edit</th> -->
           </tr>
         </thead>  
         <tbody>
           <tr v-for="val in roleobj" >
             <td>{{val.role_name}}</td>
              <td>{{val.description}}</td>
-             <td> <div :class="bg = 'status'+val.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(val.active_status) }}</div></td>
-             <td style="position:relative;width:10%;text-align:center"> <font-awesome-icon v-show="val.active_status == 0" class="fontawecolorgreen" @click="onrole(val)" icon="check" />
+             <td style="cursor:pointer" @click="onrole(val,val.active_status)"> <div :class="bg = 'status'+val.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(val.active_status) }}</div></td>
+             <!-- <td style="position:relative;width:10%;text-align:center"> <font-awesome-icon v-show="val.active_status == 0" class="fontawecolorgreen" icon="check" />
              <font-awesome-icon v-show="val.active_status == 1" class="fontawecolorred" @click="turnoffapp(val)"  icon="ban" /></td></tr>
+              -->
+          </tr>
         </tbody>
       </table>
      

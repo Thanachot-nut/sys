@@ -119,14 +119,18 @@ export default {
             M.toast({ html: toastHTML })
           })
     },
-    onapp(val){
-      console.log('on app'+JSON.stringify(val))
-
+    onapp(val,status){
+      // console.log('on app'+JSON.stringify(val))
+      if(status == true){
+        status = 0
+      }else if(status == false){
+        status = 1
+      }
       this.load()
       var all = new Date()
       var payload = {
         app_code : val.app_code,
-        active_status : 1,
+        active_status : status,
         editor_id: val.editor_id,
         edit_date_time: all.getFullYear()+'/'+all.getMonth()+'/'+all.getDate(),
         id: val.id
@@ -223,14 +227,19 @@ export default {
           this.cload()
         })
     },
-    statusmodal1(val){
+    statusmodal1(val,status){
+      if(status == true){
+        status = 0
+      }else if(status == false){
+        status = 1
+      }
       console.log('on app'+JSON.stringify(val))
 
       this.load()
       var payload = {
         menu_code : val.menu_code,
         menu_name : val.menu_name,
-        active_status: 1,
+        active_status: status,
         editor_id: 1,
         id: val.id
       }
@@ -251,33 +260,6 @@ export default {
           this.cload()
         })
     
-    },
-    statusmodal0(val){
-      console.log('on app'+JSON.stringify(val))
-      this.load()
-      var payload = {
-        menu_code : val.menu_code,
-        menu_name : val.menu_name,
-        active_status: 0,
-        editor_id: 1,
-        id: val.id
-      }
-      console.log(JSON.stringify(payload))
-      api.changestatusmodal(payload,
-        (result) => {
-          this.cload()
-          if (result.status == 'success') {
-            console.log('resultchange :' + JSON.stringify(result))
-            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ Success !!!</span>';
-            M.toast({ html: toastHTML });
-            this.showinfo(this.sendobj)
-          }
-        },
-        (error) => {
-          var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
-          M.toast({ html: toastHTML });
-          this.cload()
-        })
     },
     togglemenufun(){
       if(this.toggleaddmenu === 1){

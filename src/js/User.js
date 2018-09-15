@@ -15,7 +15,7 @@ export default {
       phone_add: '',
       page: 1,
       prevpage: 0,
-      nextpage: 25,
+      nextpage: 20,
       coloractive: '',
       activeItem: 0,
       selectbranch:'',
@@ -91,7 +91,7 @@ export default {
           this.cload()
           console.log(result.status)
           console.log('result length ::' + result.length)
-          var page = (result.length) / 25
+          var page = (result.length) / 20
           console.log('page :' + page)
           this.page = parseInt(page) + 1
 
@@ -116,6 +116,8 @@ export default {
       this.username_add = ''
       this.password_add = ''
       this.phone_add = ''
+      
+      this.adduser = !this.adduser
     },
     insertuser() {
       console.log('add User')
@@ -171,12 +173,12 @@ export default {
           this.cload()
           // console.log('Search showall :' + JSON.stringify(result))
           console.log('result length ::' + result.length)
-          var page = (result.length) / 25
+          var page = (result.length) / 20
           console.log('page :' + page)
           this.page = parseInt(page) + 1
 
           this.objuser = result.slice(this.prevpage, this.nextpage)
-
+          // console.log(this.objuser)
           // console.log(JSON.stringify(this.objuser))
           // var toastHTML = '<span style="color:white">ค้นหา ' + usercode + ' สำเร็จ </span>';
           // M.toast({ html: toastHTML })
@@ -191,19 +193,28 @@ export default {
     changestatus(val) {
       var x;
       if (val == 1) {
-        x = 'Available'
+        x = 'ทำงาน'
         return x
       } else if (val == 0) {
-        x = 'Not Available'
+        x = 'ลาออก'
         return x
       }
     },
-    status0(val) {
+    test123(){
+      alert('dddd')
+    },  
+    status0(val,status) {
+      if(status == true){
+        status = 0
+      }else if(status == false){
+        status = 1
+      }
+      console.log(status)
       console.log('on app' + JSON.stringify(val))
       this.load()
       var payload = {
         user_code: val.user_code,
-        active_status: 1,
+        active_status: status,
         editor_id: val.editor_id,
         id: val.id
       }
@@ -215,7 +226,7 @@ export default {
             console.log('resultchange :' + JSON.stringify(result))
             // console.log('Datauser'+localStorage.Datauser)
             // this.DataUser = result.data
-            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ Success !!!</span>';
+            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ !!!</span>';
             M.toast({ html: toastHTML });
             this.showall()
           }
@@ -226,44 +237,15 @@ export default {
           this.cload()
         })
 
-    },
-    status1(val) {
-      console.log('on app' + JSON.stringify(val))
-      this.load()
-      var payload = {
-        user_code: val.user_code,
-        active_status: 0,
-        editor_id: val.editor_id,
-        id: val.id
-      }
-      console.log(JSON.stringify(payload))
-      api.changestatususer(payload,
-        (result) => {
-          this.cload()
-          if (result.status == 'success') {
-            console.log('resultchange :' + JSON.stringify(result))
-            // console.log('Datauser'+localStorage.Datauser)
-            // this.DataUser = result.data
-            var toastHTML = '<span style="color:white">เปลี่ยนสเตตัสสำเร็จ Success !!!</span>';
-            M.toast({ html: toastHTML });
-            this.showall()
-          }
-        },
-        (error) => {
-          var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
-          M.toast({ html: toastHTML });
-          this.cload()
-        })
     },
     clickpage(val) {
       this.coloractive = val
-
       this.activeItem = val;
       var numpage = (val);
-      var result = 25 * numpage
+      var result = 20 * numpage
       console.log(result)
       this.prevpage = 0 + result,
-        this.nextpage = 25 + result,
+        this.nextpage = 20 + result,
         this.showall()
       // console.log('activeitem : '+this.activeItem)
 
