@@ -1,3 +1,7 @@
+.menupm{
+  padding-right: 0;padding-left: 5px;transition:all 0.5s;
+  top: 0;
+}
 .fade-enter-active, .fade-leave-active {
     transition: all .5s;
     animation: righttoleft 0.5s;
@@ -195,7 +199,8 @@ ul:not(.browser-default) > li {
 }
 .selectadduser{
   position: relative;
-  left: 15px;
+  text-align: center;
+  text-align-last: center;
 }
 tbody tr{
   cursor: pointer;
@@ -205,4 +210,33 @@ tbody tr{
 }
 #tr:hover td{
   background: rgba(11, 160, 247, 0.363);
+}
+
+.black-text {
+  color: #000000 !important;
+  position: relative;
+  right: 21px;
+}
+
+.row{
+  margin-bottom: 0;
+}
+label.alwayactive{
+  color: rgb(0, 136, 203)
+}
+.input-field > label:not(.label-icon).alwayactive {
+  -webkit-transform: translateY(-14px) scale(0.8);
+  transform: translateY(-14px) scale(0.8);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.pdleft0{
+  padding-left: 0;
+}
+
+table.highlight > tbody > .nohover:hover {
+  background: none !important;
+}
+.formuser input{
+  text-align: center;
 }

@@ -216,4 +216,40 @@ export default {
         error(response)
       })
   },
+  editprofile(data,success, error) {
+    Vue.axios.put(URL + ':9000/user',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  callroleinuser(data,success, error) {
+    Vue.axios.get(URL + ':9000/userroles?access_token=aaaa&user_id='+data).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  edituserrole(data,success, error) {
+    Vue.axios.put(URL + ':9000/userrole',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  insertuserrole(data,success, error) {
+    Vue.axios.post(URL + ':9000/userrole',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
 }

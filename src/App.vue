@@ -96,4 +96,5 @@ box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);
 table.highlight > tbody > tr:hover {
     background: rgba(11, 160, 247, 0.363) !important;
 }
+
 </style>
