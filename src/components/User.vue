@@ -1,6 +1,7 @@
 <template>
   <div class="User">
-    <div class="animationstart animationstart1 " style="text-align:center;"><h4>Mange User</h4></div>
+    <div class="animationstart animationstart1 "><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
+    font-weight: bold;">Mange User</h4></div>
     <div class="container">
       <div class="col-12 col-sm-5 col-md-5 animationstart2 bordercolor" style="display:inline-block">
         <!-- <div style="position:absolute;width:99%;height:120%;border:2px solid rgba(0,0,0,0.25);left:3px;top:-13px;"> </div> -->
@@ -43,7 +44,7 @@
     width: 80%;" v-model="usercode_add" id="usercode_add" type="text" class="validate">
             <label style="left:96px;" for="usercode_add">Usercode</label>
           </div>
-          <div class=" col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
+          <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
         <!-- <label for="sel1">Select list (select one):</label> -->
         กรุณาเลือกสาขา
       <select v-model="V_selectbranch" class="form-control selectadduser" name="sellist1">
@@ -63,7 +64,7 @@
     width: 80%;" v-model="username_add" id="username_add" type="text" class="validate">
             <label style="left:96px;" for="username_add">Username</label>
           </div>
-            <div class=" col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
+            <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
         กรุณาเลือกหน่วยงาน
       <select v-model="V_department" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectdepartment" :value="val.id" >{{val.department_name}}</option>
@@ -81,7 +82,7 @@
             <input style="position:relative;left: 45px;width: 80%;" v-model="password_add" id="Password" type="text" class="validate">
             <label  style="left:96px;" for="Password">Password</label>
           </div>
-           <div class="col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
+           <div class="col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
        กรุณาเลือกแผนก
       <select v-model="V_expert" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
@@ -99,7 +100,7 @@
             <input style="position:relative;left: 45px;width: 80%;" v-model="phone_add" id="Phone" type="text" class="validate">
             <label  style="left:96px;" for="Phone">Phone</label>
           </div>
-          <div class=" col-12 col-sm-5" style="margin-left: 50px;position:relative;text-align:center;white-space: nowrap;">
+          <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
        กรุณาเลือก Profitcenters
       <select v-model="V_profitcenter" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option> 
@@ -108,7 +109,7 @@
            </div>
           </div>
           <!--  -->
-          <div class="row animationstart6" style="text-align:center;">
+          <div class="row animationstart6" style="text-align:center;margin-top:15px;">
           <div class="col-6 col-sm-5 col-md-5" >
          <button class="btn waves-effect  teal accent-3 " @click="insertuser()" data-toggle="modal" data-target="#exampleModal" type="submit" name="action">     <font-awesome-icon style="color:white;font-size:20px;position:relative;top:2.5px;margin-right:5px;" icon="plus" />
              ตกลง
@@ -125,17 +126,20 @@
         </div>
       </div>
     </transition>
-    <div   style="position: absolute; /* text-align: center; */ /* position: relative; */ transform: translateY(-50%); left: 50%;">
-     <ul class="pagination animationstart3" style="margin-top:5px;left:50%;transform:translateX(-50%);">
+    <div class="col-11 mt10" style="position:relative;height:31px;">
+    <div   style="z-index: 2;position: absolute; /* text-align: center; */ /* position: relative; */ transform: translateY(-50%); left: 50%;transform:translateX(-50%)">
+     <ul class="pagination animationstart3" style="z-index: 2;margin-top:5px;left:50%;transform:translateX(-50%);">
      <!-- <li @click="prevpageb()" class="waves-effect"><a href="#!" style="color:#42a5f5;" ><</a></li> -->
     <!-- <li class="active"><a href="#!"></a></li> -->
-    <ul v-for="(val,index) in page" >
+    <ul v-for="(val,index) in page" style="z-index: 2;" >
     <li class="waves-effect"  :class="{active: coloractive === index}"  @click="clickpage(index)"><a href="#!">{{val}}</a></li>
   </ul>
   <!-- <li @click="nextpageb()" class="waves-effect"><a href="#!" style="color:#42a5f5;">></a></li> -->
   </ul>
   </div>
-      <table  class="highlight responsive-table animationstart4 bordercolor" style=";margin-top:40px;">
+  </div>
+    <div class="col-md-12 animationstart4" style="overflow:auto;padding-left:0;;padding-right: 5px; padding-bottom: 5px;margin-top:5px;">
+      <table  class="highlight  bordercolor" style="margin-top:10px;box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);padding-right:5px;padding-bottom:5px">
         <thead>
           <tr>
             <th>รหัส</th>
@@ -149,7 +153,7 @@
           </tr>
         </thead>
         <tbody >
-          <tr id="tr" v-for="data in objuser"   >
+          <tr v-for="data in objuser"  >
             <td style="text-align:center"  data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.sale_code}}</td>
             <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.user_name}}</td>
             <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.user_code}}</td>
@@ -159,11 +163,13 @@
             <td @click="status0(data,data.active_status)" style="text-align:center;"><div :id="'status'+data.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(data.active_status) }}</div></td>
           </tr>
         </tbody>
+  
       </table>
+            </div>
     </div>
 
        <div class="modal fade" id="detailuser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" style="z-index: 99;" role="document">
     <div class="modal-content">
       <div class="modal-header" align="center">
         <h5 class="modal-title swing-in-right-fwd" id="exampleModalLabel">โปรไฟล์ คุณ <span style="font-weight:bold;">  {{ profile_user }} </span></h5>
@@ -174,7 +180,7 @@
       <div class="modal-body">
           <div class="col-12">
             <div class="row">
-            <div class="col-5 menupm" :style="{top:topuser}" >
+            <div class="col-6 col-sm-5 menupm" :style="{top:topuser}" >
         <div  class="card-panel grey lighten-5 z-depth-1 waves-effect" @click="profileuser" style="padding: 0;cursor:pointer;display: block;
      overflow: hidden; height: 50px;">
           <div class="row valign-wrapper"  style="transition:all 0.5s;" :style="{background: backgrounduser}">
@@ -189,7 +195,7 @@
           </div>
         </div>
           </div>
-             <div class="col-5 menupm" :style="{top:topper}" >
+             <div class="col-6 col-sm-5 menupm" :style="{top:topper}" >
         <div  class="card-panel grey lighten-5 z-depth-1 waves-effect" @click="permissionuser" style="padding: 0;cursor:pointer;display: block;overflow: hidden; height: 50px;">
           <div class="row valign-wrapper" style="transition:all 0.5s;" :style="{background: backgroundper}">
             <div class="col s2">
@@ -205,8 +211,7 @@
           </div>
       </div>
       <!-- profile -->
-     
-      <div v-show="swich_pro_permis == 0" style="box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);position: relative; top: -3px;border: 1px solid rgba(0, 0, 0, 0.25); padding: 15px 0px;">
+      <div v-show="swich_pro_permis == 0" style="box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);position: relative; top: -3px;border: 1px solid rgba(0, 0, 0, 0.25); padding: 15px 15px;">
         <div class="col-12 pdleft0">
         <div class="row">
           <div class="col-6">
@@ -239,21 +244,20 @@
         </div>
         </div>
         </div>
- 
 <div class="col-12 pdleft0">
         <div class="row">
-         <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
-      สาขา : 
+         <div class="col-6" style="position:relative;text-align:center;white-space: nowrap;">
+      สาขา :
         <!-- สาขา : {{ profile_branch_code }} -->
       <select v-model="profile_branch_code2" id="profile_branch" class="form-control selectadduser" name="sellist1">
-        <option v-for="val in selectbranch" :value="val.id">{{val.branch_code}}</option> 
+        <option v-for="val in selectbranch" :key="val.id" :value="val.id">{{val.branch_code}}</option>
       </select>
       </div>
       <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
         หน่วยงาน :
        <!-- หน่วยงาน : {{ profile_department_name }} -->
       <select v-model="profile_department_name2" class="form-control selectadduser" name="sellist1">
-        <option v-for="val in selectdepartment" :value="val.id" >{{val.department_name}}</option>
+        <option  v-for="val in selectdepartment" :key="val.id" :value="val.id" >{{val.department_name}}</option>
       </select>
           </div>
       </div>
@@ -261,30 +265,27 @@
 
 <div class="col-12 pdleft0">
         <div class="row">
-         <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
+         <div class="col-6" style="position:relative;text-align:center;white-space: nowrap;">
       แผนก :
        <!-- แผนก : {{ profile_expert_name }} -->
       <select v-model="profile_expert_name2" class="form-control selectadduser" name="sellist1">
-        <option v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
+        <option :key="val.id" v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
       </select>
       </div>
       <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
          Profitcenters :
          <!-- Profitcenters : {{ profile_profitcenter_name }} -->
       <select  v-model="profile_profitcenter_name2"  class="form-control selectadduser" name="sellist1">
-        <option v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option> 
+        <option :key="val.id" v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option>
       </select>
           </div>
       </div>
         </div>
-               
         </div>
-
       <!-- profile -->
        <!-- permission -->
-
       <div v-show="swich_pro_permis == 1">
-        <table class="highlight responsive-table animationtext2 bordercolor" style="margin-bottom:20px;">
+        <table class="highlight animationtext2 bordercolor" style="margin-bottom:20px;">
         <thead>
           <tr >
             <th>ลำดับ</th>
@@ -292,39 +293,40 @@
             <th>สิทธิ</th>
             <th>แก้ไขสิทธิ</th>
           </tr>
-        </thead>  
+        </thead>
         <tbody >
-          <tr id="center" v-for="(val,index) in objectapp">
+          <tr :key="val.id" id="center" v-for="(val,index) in objectapp">
               <td style="text-align:center;">{{ index+1 }}</td>
             <td style="text-align:center;">{{ val.app_name}}</td>
             <td style="text-align:center;">{{val.role_name}}</td>
             <td> <select v-model="editrole" @change="savepermission(val,index)"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :value="val.id">{{val.role_name}}</option> 
+        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{val.role_name}}</option>
       </select></td>
             </tr>
         </tbody>
       </table>
       <transition name="fade">
             <div style="position:relative;text-align:center" v-show="showper">
-               <span style="font-weight:bold;">สิทธิที่ต้องการเพิ่ม</span> 
-<table  class="highlight responsive-table bordercolor" style="float:left;">
+               <span style="font-weight:bold;">สิทธิที่ต้องการเพิ่ม</span>
+               
+<table  class="highlight bordercolor" style="float:left;">
         <thead>
           <tr >
             <th>แอพ</th>
             <th>ตำแหน่ง</th>
               <th>เพิ่ม</th>
           </tr>
-        </thead>  
+        </thead>
         <tbody >
           <tr class="nohover" id="center" >
               <td style="text-align:center">
                  <select v-model="selectaddapp"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="value in allappselect" :value="value.id">{{value.app_name}}</option> 
+        <option v-for="value in allappselect" :key="value.id" :value="value.id">{{value.app_name}}</option>
       </select>
               </td>
               <td style="text-align:center">
       <select v-model="selectaddrole"   class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :value="val.id">{{val.role_name}}</option> 
+        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{val.role_name}}</option>
       </select></td>
              <td style="text-align:center;">
                <button @click="addperinapp" type="button" class="btn green accent-2" style="position: relative;" >เพิ่ม</button>
@@ -335,14 +337,11 @@
             </div>
             </transition>
         </div>
-     
       <!-- permission -->
       </div>
-        
       </div>
       <div class="modal-footer swing-in-right-fwd5">
          <button @click="showper = !showper"  v-show="swich_pro_permis == 1" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >เพิ่มสิทธิ</button>
-       
         <!-- <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button> -->
         <button @click="saveprofile" v-show="swich_pro_permis == 0" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >บันทึกข้อมูล</button>
       </div>

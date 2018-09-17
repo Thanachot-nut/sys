@@ -2,11 +2,12 @@
   <div class="Main">
     <div class="container">
     <div class="col-12" align="center">
-      <p style="font-size:50px;">Menu</p>
+      <p style="font-size:50px;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
+    font-weight: bold;">Menu</p>
     </div>
 
        <div class="row">
-    <div class="col-12 col-md-3 col-sm-6 " @click="gouser">
+    <div class="col-12 col-md-6 col-sm-6 col-lg-3" @click="gouser">
       <div class="card cardani1" >
         <div class="card-image images" align="center">
                     <img src="../assets/menu/001-users.png" class="cimagemenu">
@@ -21,7 +22,7 @@
       </div>
     </div>
     <!--  -->
-    <div class="col-12 col-md-3 col-sm-6" @click="goapp">
+    <div class="col-12 col-md-6 col-sm-6 col-lg-3" @click="goapp">
       <div class="card cardani2">
         <div class="card-image images2" >
           <!-- <div style="background-color:red;z-index:99;width:100%;height:100%;position:relative"></div> -->
@@ -39,7 +40,7 @@
       </div>
     </div>
   <!--  -->
-    <div class="col-12 col-md-3 col-sm-6" @click="gorole">
+    <div class="col-12 col-md-6 col-sm-6 col-lg-3" @click="gorole">
       <div class="card cardani3">
         <div class="card-image images3">
          <img src="../assets/menu/003-resume.png" class="cimagemenu">
@@ -53,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-3 col-sm-6" @click="goper">
+    <div class="col-12 col-md-6 col-sm-6 col-lg-3" @click="goper">
       <div class="card cardani4">
         <div class="card-image images4">
          <img src="../assets/menu/004-delete.png" class="cimagemenu">

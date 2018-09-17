@@ -233,6 +233,7 @@ label.alwayactive{
 }
 .pdleft0{
   padding-left: 0;
+  padding-right: 0;
 }
 
 table.highlight > tbody > .nohover:hover {
@@ -240,4 +241,25 @@ table.highlight > tbody > .nohover:hover {
 }
 .formuser input{
   text-align: center;
+}
+table.highlight > tbody > tr:hover {
+  background: rgba(11, 160, 247, 0.363) !important;
+}
+.modal .modal-content {
+  padding: 0;
+}
+@media only screen and (min-width: 600px) {
+  .animationstart4{
+        margin-top: 40;
+  }
+ 
+}
+@media only screen and (max-width: 600px) {
+  .mt10{
+    margin-top:0 !important;
+  }
+ 
+}
+.mt10{
+  margin-top:10px
 }

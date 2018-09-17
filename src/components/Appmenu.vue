@@ -1,13 +1,14 @@
 <template>
   <div class="Appmenu">
-    <br>
+
      <div class="container">
-        <div class="animationstart1" style="text-align:center;"><h4 >Mange App and Menu</h4></div>
+        <div class="animationstart1" ><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
+    font-weight: bold;">Mange App and Menu</h4></div>
          <div class="col-12 col-sm-8 col-md-8 animationstart2 bordercolor" style="float:left">
         <!-- <div style="position:absolute;width:99%;height:120%;border:2px solid rgba(0,0,0,0.25);left:3px;top:-13px;"> </div> -->
         <div class="form-group">
             <div class="col-10 col-sm-10 col-md-10 " style="float:left">
-           <div class="input-field col" style="position:relative">
+           <div class="input-field col" style="position:relative;margin-top:1.3rem">
             <input style="position:relative" @keyup.enter="Searchitem" v-model="searchi" autofocus id="last_name" type="text" class="validate">
             <label  for="last_name">Search</label>
             </div>
@@ -26,8 +27,8 @@
           Add App
           </button></div></div>
       </div>
-      
-      <table class="highlight responsive-table animationstart3 bordercolor" style="margin-top:10px;float:left;">
+      <div class="col-12 animationstart3"  style="overflow:auto;padding-right: 5px; padding-bottom: 5px;padding-left:0;">
+      <table class="highlight bordercolor mt10" style="margin-top:25px;float:left;">
         <thead>
           <tr >
             <th>ชื่อแอพ</th>
@@ -46,6 +47,7 @@
             </tr>
         </tbody>
       </table>
+      </div>
      </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -132,7 +134,8 @@
           </div>
    
          </div>
-       <table class="highlight responsive-table animationtext2 bordercolor" style="margin-top:10px;float:left;">
+        
+       <table class="highlight animationtext2 bordercolor" style="margin-top:10px;float:left;">
         <thead>
           <tr >
             <th>ชื่อเมนู</th>
@@ -140,7 +143,7 @@
             <th>สถานะ</th>
           </tr>
         </thead>  
-        <tbody  >
+        <tbody>
           <tr id="center" v-for="value in contentmodal" >
             <td>{{ value.menu_name}}</td>
              <td>{{ value.description}}</td>
@@ -148,6 +151,7 @@
             </tr>
         </tbody>
       </table>
+      
         <!-- <div class="containmodal animationtext2">
           <div class="containfont">
                  <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="tag" />

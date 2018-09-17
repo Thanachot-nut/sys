@@ -1,6 +1,7 @@
 <template>
   <div class="Per">
-           <div class="animationstart1" style="text-align:center;"><h4 >Permission</h4></div>
+           <div class="animationstart1" style="text-align:center;"><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
+    font-weight: bold;">Permission</h4></div>
       <div class="container">
           <div class="row">
 
@@ -55,7 +56,7 @@
 
       <div v-show="permissionall != ''"  class="col-12 col-sm-12 col-md-6 animationstart3" style="display:inline-block;margin-top:10px;">
          <div class="row">
-         <div class="col-11 bordercolor" style="overflow:auto">
+         <div class="col-12 col-sm-11 bordercolor" style="overflow:auto">
                <table class="highlight " style="margin-top:10px;float:left;">
           <tr>
             <td colspan="5" style="font-weight:bold;text-align:center;font-size:1.5rem;">
