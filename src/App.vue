@@ -44,9 +44,19 @@ export default {
   methods: {
     getback(){
       this.$router.go(-1)
-    }
+    },
+    username () {
+  			//console.log(localStorage.DataUser)
+        var Datauser = JSON.parse(localStorage.Datauser)
+        // localStorage.username = Datauser.username
+        // localStorage.rolename = Datauser.rolename
+  	}
   },
   mounted() {
+    setInterval(function () {
+  		this.username()
+    }.bind(this),1000)
+    
      console.log(this.$router)
   }
 }
@@ -72,7 +82,6 @@ transition: all 0.5s;
 }
 .menulogout:hover .imagesm{
   transform: scale(1.25);
-
 }
 .imagesm{
       width: 30px;
@@ -81,8 +90,8 @@ transition: all 0.5s;
     transition: all 0.5s;
 }
 .menu{
-border-right: 1px solid #81d4fa;width:50px;height:50px;position:relative;cursor:pointer;
-transition: all 0.5s;
+border-right: 1px solid #81d4fa;width: 12.5%;height:50px;position:relative;cursor:pointer;
+transition: all 0.5s;max-width: 70px;
 }
 .fontawesomeb{
 color:white;font-size:25px;position: relative;top: 11.5px;

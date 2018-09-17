@@ -26,5 +26,8 @@ export default {
     
   },
   mounted() {
+    var Datauser = JSON.parse(localStorage.Datauser)
+    console.log(Datauser.id)
+
   }
 }

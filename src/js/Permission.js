@@ -1,5 +1,5 @@
 import api from "../service/service.js"
-
+var Datauser = JSON.parse(localStorage.Datauser)
 export default {
   name: "Per",
   data() {
@@ -205,7 +205,7 @@ export default {
       var payload = {
         app_id : this.appid,
         role_id : val.id,
-        creator_id: 1,
+        creator_id: Datauser.id,
       }
       console.log('approle'+JSON.stringify(this.apptorole))
       console.log(JSON.stringify(payload))
@@ -233,5 +233,7 @@ export default {
   },
   mounted() {
     this.callapiapp()
+    var Datauser = JSON.parse(localStorage.Datauser)
+    console.log(Datauser.id)
   }
 }

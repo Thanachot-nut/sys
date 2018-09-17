@@ -1,5 +1,5 @@
 import api from "../service/service.js"
-
+var Datauser = JSON.parse(localStorage.Datauser)
 export default {
   name: "App",
   data() {
@@ -131,7 +131,7 @@ export default {
       var payload = {
         app_code : val.app_code,
         active_status : status,
-        editor_id: val.editor_id,
+        editor_id: Datauser.id,
         edit_date_time: all.getFullYear()+'/'+all.getMonth()+'/'+all.getDate(),
         id: val.id
       }
@@ -163,7 +163,7 @@ export default {
       var payload = {
         app_code : val.app_code,
         active_status : 0,
-        editor_id: val.editor_id,
+        editor_id: Datauser.id,
         edit_date_time: all.getFullYear()+'/'+all.getMonth()+'/'+all.getDate(),
         id: val.id
       }
@@ -240,7 +240,7 @@ export default {
         menu_code : val.menu_code,
         menu_name : val.menu_name,
         active_status: status,
-        editor_id: 1,
+        editor_id: Datauser.id,
         id: val.id
       }
       console.log(JSON.stringify(payload))
@@ -276,7 +276,7 @@ export default {
           app_id:this.sendobj.id,
           description:this.addmenudescription,
           active_status:1,
-          creator_id:1
+          creator_id:Datauser.id
        }
         api.insertmenu(payload,
           (result) => {
@@ -300,5 +300,7 @@ export default {
   },
   mounted() {
     this.showcontent()
+    var Datauser = JSON.parse(localStorage.Datauser)
+    console.log(Datauser.id)
   }
 }

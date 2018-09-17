@@ -1,5 +1,5 @@
 import api from "../service/service.js"
-
+var Datauser = JSON.parse(localStorage.Datauser)
 export default {
   name: "User",
   data() {
@@ -53,7 +53,8 @@ export default {
       showper:false,
       allappselect:[],
       selectaddrole:'',
-      selectaddapp:''
+      selectaddapp:'',
+      idlogin:0
     }
   },
   methods: {
@@ -131,7 +132,7 @@ export default {
         profitcenter_id: this.V_profitcenter,
         department_id: this.V_department,
         expert_id: this.V_expert,
-        creator_id: 1
+        creator_id: Datauser.id
       }
       console.log('payload : ' + JSON.stringify(payload))
       api.insert_user(payload,
@@ -215,7 +216,7 @@ export default {
       var payload = {
         user_code: val.user_code,
         active_status: status,
-        editor_id: val.editor_id,
+        editor_id: Datauser.id,
         id: val.id
       }
       console.log(JSON.stringify(payload))
@@ -361,7 +362,7 @@ export default {
         department_id: this.profile_department_name2,
         expert_id: this.profile_expert_name2,
         active_status: 1,
-        editor_id:1,
+        editor_id: Datauser.id,
         id:this.profile_id,
       }
       console.log(JSON.stringify(payload))
@@ -456,7 +457,7 @@ export default {
         app_id: this.selectaddapp,
         user_id: this.profile_id,
         role_id: this.selectaddrole,
-        creator_id: 1,
+        creator_id: Datauser,
       }
 
       api.insertuserrole(payload,
@@ -476,8 +477,14 @@ export default {
     },
   },
   mounted() {
+    // var Datauser = JSON.parse(localStorage.Datauser)
+    // this.Datauser = Datauser.id
+    // console.log(this.Datauser)
+
     this.getallselect()
     this.coloractive = 0
     this.showall()
+
+   
   }
 }

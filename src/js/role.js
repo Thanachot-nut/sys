@@ -1,5 +1,5 @@
 import api from "../service/service.js"
-
+var Datauser = JSON.parse(localStorage.Datauser)
 export default {
   name: "role",
   data() {
@@ -70,7 +70,7 @@ export default {
         role_name : val.role_name,
         description: val.description,
         active_status: status,
-        editor_id: val.editor_id,
+        editor_id: Datauser.id,
         id:val.id
       }
       
@@ -105,7 +105,7 @@ export default {
         role_name : val.role_name,
         description: val.description,
         active_status: 0,
-        editor_id: 1,
+        editor_id: Datauser.id,
         id:val.id
       }
       console.log(JSON.stringify(payload))
@@ -131,5 +131,7 @@ export default {
 
   mounted() {
      this.showroleall()
+     
+     console.log(Datauser.id)
   }
 }

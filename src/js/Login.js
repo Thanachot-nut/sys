@@ -18,6 +18,7 @@ export default {
           console.log(result.status)
           if (result.status == 'success') {
             console.log('login :' + JSON.stringify(result))
+            localStorage.Datauser = JSON.stringify(result.data)
             // console.log('Datauser'+localStorage.Datauser)
             // this.DataUser = result.data
             var toastHTML = '<span style="color:white">Login success</span>';
