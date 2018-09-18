@@ -65,7 +65,9 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Kanit');
 .activem{
-   background: #4fc3f7;
+    border-right: 1px solid white !important;
+  background: #4fc3f7;
+  border-left: 1px solid white  !important;
 }
 .activem .imagesm{
   transform: scale(1.25);
@@ -76,9 +78,9 @@ export default {
 transition: all 0.5s;
 }
 .menulogout:hover {
-  border-right: 1px solid white;
-  background: #4fc3f7
-
+  
+  background: #4fc3f7;
+  
 }
 .menulogout:hover .imagesm{
   transform: scale(1.25);
@@ -97,9 +99,9 @@ transition: all 0.5s;max-width: 70px;
 color:white;font-size:25px;position: relative;top: 11.5px;
 }
 .menu:hover {
-  border-right: 1px solid white;
-  background: #4fc3f7
-
+   border-right: 1px solid white !important;
+  background: #4fc3f7;
+  border-left: 1px solid white  !important;
 }
 .menu:hover .imagesm{
   transform: scale(1.25);

@@ -138,7 +138,7 @@
           </tr>
         </thead>  
         <tbody>
-          <tr  v-for="val in roleobj" >
+          <tr id="roleid" v-for="val in roleobj" >
             <td style="padding-left:20px;">{{val.role_name}}</td>
              <td style="padding-left:20px;">{{val.description}}</td>
                <td style="padding:8px 0;text-align: center;"><button  v-show="closebutton" data-toggle="modal" data-target="#exampleModal" style="position:relative;background:#81c784;    width: 100px;

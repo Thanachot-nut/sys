@@ -68,8 +68,6 @@ export default {
         this.backgroundper = 'white'
       }
       // css
-     
-      
     },
     permissionuser(){
       // css

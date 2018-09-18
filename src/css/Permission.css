@@ -320,9 +320,15 @@ textarea::placeholder {
   .bordercolor {
     margin-left: 10px;
   }
+  .rightawe {
+    right: -5px !important;
+}
 }
 @media only screen and (max-width: 767px) {
   .rightawe {
     right: 8px;
   }
+}
+#roleid td{
+  text-align: center;
 }
