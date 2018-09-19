@@ -196,6 +196,14 @@ table.highlight > tbody > tr:hover {
         margin-top: 0;
     }
 }
+body{
+  background: #f4f5f7;
+}
+.container{
+  background: white;
+    padding-top: 20px;
+    box-shadow: 0 15px 35px rgba(50,50,93,0.03), 0 5px 15px rgba(0,0,0,0.06);
+}
 /*  */
 
 </style>

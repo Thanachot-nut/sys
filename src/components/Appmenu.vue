@@ -1,9 +1,9 @@
 <template>
   <div class="Appmenu">
-
-     <div class="container">
-        <div class="animationstart1" ><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
+  <div class="animationstart1" ><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
     font-weight: bold;">Mange App and Menu</h4></div>
+     <div class="container">
+      
          <div class="col-12 col-sm-8 col-md-8 animationstart2 bordercolor" style="float:left">
         <!-- <div style="position:absolute;width:99%;height:120%;border:2px solid rgba(0,0,0,0.25);left:3px;top:-13px;"> </div> -->
         <div class="form-group">

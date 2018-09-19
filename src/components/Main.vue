@@ -1,10 +1,11 @@
 <template>
   <div class="Main">
-    <div class="container">
     <div class="col-12" align="center">
       <p style="font-size:50px;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
     font-weight: bold;">Menu</p>
     </div>
+    <div class="container">
+    
 
        <div class="row">
     <div class="col-12 col-md-6 col-sm-6 col-lg-3" @click="gouser">
