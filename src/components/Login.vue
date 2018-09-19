@@ -3,7 +3,7 @@
     <div class="container-fluid h-100" style="position:absolute;top:50%;transform:translateY(-50%)">
       <div style="
     position: relative;" class="row justify-content-center align-items-center h-100" >
-        <div class="col-10 col-sm-5 col-md-4 col-lg-3 col-xl-3" style="box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;padding:25px;margin-top:20px;">
+        <div class="col-10 col-sm-5 col-md-4 col-lg-3 col-xl-3" style="background: white;box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;padding:25px;margin-top:20px;">
           <form action="" class="">
             <img class="animationpic" style="width:100%;height:100%;" src="../assets/logo_nopadol.jpg">
             <div class="form-group">
@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="form-group">
-              <button  style="left:15px;position:relative;background:#F0B847" class="btn btn-info btn-lg btn-block animationtext3" @click="login()">Sign In</button>
+              <button  style="position:relative;background:#F0B847" class="btn btn-info btn-lg btn-block animationtext3" @click="login()">Sign In</button>
             </div>
           </form>
         </div>

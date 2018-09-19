@@ -79,8 +79,6 @@ export default {
         this.backgrounduser = 'white'
       }
       // css
-     
-   
     },
     getuser() {
       this.load()
@@ -250,10 +248,12 @@ export default {
 
     },
     detailprofile(val) {
+      // this.showper = false
       if(!val){
         var val = this.objuserprofile
       }
       // clear
+      
       this.profile_branch_code2 = ''
       this.profile_department_name2 = ''
       this.profile_expert_name2 = ''
@@ -276,7 +276,6 @@ export default {
 
       // call api menu permission
       this.load()
-    
 
       // ใส่ค่า select ให้แสดง
       this.profile_branch_code2 = val.branch_id
@@ -290,6 +289,7 @@ export default {
         (result) => {
        
           this.objectapp = result.data
+          this.getallapp()
           console.log(JSON.stringify(this.objectapp))
           this.cload()
         },
@@ -299,7 +299,7 @@ export default {
           M.toast({ html: toastHTML });
           this.cload()
         })
-        this.getallapp()
+       
      
     },
     getallselect() {
@@ -430,7 +430,10 @@ export default {
           // this.allappselect = result.data 
           // this.objectapp
           console.log(JSON.stringify(this.objectapp))  // มีเท่าไร
-
+          if(this.objectapp == null){
+            this.allappselect = []
+            return
+          }
          var deSelectedRows = this.objectapp
          var selectedRows = result.data
          //กรองค่าที่ซ้ำออก 
@@ -439,6 +442,7 @@ export default {
                 return e.app_code == cv.app_code;
             });
         });
+        console.log(selectedRows)
         this.allappselect = selectedRows
 
 
@@ -450,12 +454,11 @@ export default {
         })
     },
     addperinapp(){
-  
       var payload = {
         app_id: this.selectaddapp,
         user_id: this.profile_id,
         role_id: this.selectaddrole,
-        creator_id: Datauser,
+        creator_id: Datauser.id,
       }
 
       api.insertuserrole(payload,

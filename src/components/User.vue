@@ -341,7 +341,7 @@
       </div>
       </div>
       <div class="modal-footer swing-in-right-fwd5">
-         <button @click="showper = !showper"  v-show="swich_pro_permis == 1" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >เพิ่มสิทธิ</button>
+         <button @click="showper = !showper "  v-show="swich_pro_permis == 1" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >เพิ่มสิทธิ</button>
         <!-- <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button> -->
         <button @click="saveprofile" v-show="swich_pro_permis == 0" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >บันทึกข้อมูล</button>
       </div>

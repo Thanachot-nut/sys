@@ -1,8 +1,8 @@
 <template>
   <div class="Main">
     <div class="col-12" align="center">
-      <p style="font-size:50px;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
-    font-weight: bold;">Menu</p>
+      <h4 style="text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
+    font-weight: bold;">Welcome to Menu</h4>
     </div>
     <div class="container">
     

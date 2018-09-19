@@ -243,3 +243,8 @@ overflow: hidden;
   display: inline-block;
   background-color: #E91E63;
 }
+.container{
+  background: none;
+    padding-top: 0; 
+    box-shadow: none;
+}
