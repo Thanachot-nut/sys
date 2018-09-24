@@ -2,7 +2,7 @@ import api from "../service/service.js"
 var Datauser = JSON.parse(localStorage.Datauser)
 export default {
   name: "User",
-  data() {
+  data() { 
     return {
       user: "",
       pass: "",
@@ -18,50 +18,50 @@ export default {
       nextpage: 20,
       coloractive: '',
       activeItem: 0,
-      selectbranch:'',
-      selectdepartment:'',
-      selectexpert:'',
-      selectprofitcenter:'',
-      V_selectbranch:'',
-      V_department:'',
-      V_expert:'',
-      V_profitcenter:'',
-      profile_user:'',
-      swich_pro_permis:0,
-      backgroundper:'white',
-      backgrounduser:'#64b5f6',
-      topuser:'-5px',
-      topper:'0',
-      objuserprofile:[],
-      profile_name:'',
-      profile_telephone:'',
-      profile_user_code :'',
+      selectbranch: '',
+      selectdepartment: '',
+      selectexpert: '',
+      selectprofitcenter: '',
+      V_selectbranch: '',
+      V_department: '',
+      V_expert: '',
+      V_profitcenter: '',
+      profile_user: '',
+      swich_pro_permis: 0,
+      backgroundper: 'white',
+      backgrounduser: '#64b5f6',
+      topuser: '-5px',
+      topper: '0',
+      objuserprofile: [],
+      profile_name: '',
+      profile_telephone: '',
+      profile_user_code: '',
       profile_password: '',
       profile_branch_code: '',
       profile_department_name: '',
-      profile_expert_name:'',
-      profile_profitcenter_name:'',
-      profile_id:'',
-      profile_branch_code2:'',
-      profile_department_name2:'',
-      profile_expert_name2:'',
-      profile_profitcenter_name2:'',
-      objectapp:[],
-      roleobj:[],
-      searchrole:'',
-      editrole:'',
-      showper:false,
-      allappselect:[],
-      selectaddrole:'',
-      selectaddapp:'',
-      idlogin:0
+      profile_expert_name: '',
+      profile_profitcenter_name: '',
+      profile_id: '',
+      profile_branch_code2: '',
+      profile_department_name2: '',
+      profile_expert_name2: '',
+      profile_profitcenter_name2: '',
+      objectapp: [],
+      roleobj: [],
+      searchrole: '',
+      editrole: '',
+      showper: false,
+      allappselect: [],
+      selectaddrole: '',
+      selectaddapp: '',
+      idlogin: 0
     }
   },
   methods: {
-    profileuser(){
+    profileuser() {
       // css
       this.swich_pro_permis = 0
-      if(this.swich_pro_permis == 0){
+      if (this.swich_pro_permis == 0) {
         this.backgrounduser = '#64b5f6'
         this.topuser = '-5px'
         this.topper = '0'
@@ -69,10 +69,10 @@ export default {
       }
       // css
     },
-    permissionuser(){
+    permissionuser() {
       // css
       this.swich_pro_permis = 1
-      if(this.swich_pro_permis == 1){
+      if (this.swich_pro_permis == 1) {
         this.backgroundper = '#64b5f6'
         this.topper = '-5px'
         this.topuser = '0'
@@ -93,8 +93,8 @@ export default {
           this.page = parseInt(page) + 1
 
           this.objuser = result.slice(this.prevpage, this.nextpage)
-       
-          
+
+
         },
         (error) => {
           this.cload()
@@ -113,7 +113,7 @@ export default {
       this.username_add = ''
       this.password_add = ''
       this.phone_add = ''
-      
+
       this.adduser = !this.adduser
     },
     insertuser() {
@@ -197,13 +197,13 @@ export default {
         return x
       }
     },
-    test123(){
+    test123() {
       alert('dddd')
-    },  
-    status0(val,status) {
-      if(status == true){
+    },
+    status0(val, status) {
+      if (status == true) {
         status = 0
-      }else if(status == false){
+      } else if (status == false) {
         status = 1
       }
       console.log(status)
@@ -249,11 +249,11 @@ export default {
     },
     detailprofile(val) {
       // this.showper = false
-      if(!val){
+      if (!val) {
         var val = this.objuserprofile
       }
       // clear
-      
+
       this.profile_branch_code2 = ''
       this.profile_department_name2 = ''
       this.profile_expert_name2 = ''
@@ -269,7 +269,7 @@ export default {
       this.profile_branch_code = val.branch_code
       this.profile_department_name = val.department_name
       this.profile_expert_name = val.expert_code
-      this.profile_profitcenter_name =  val.profitcenter_name
+      this.profile_profitcenter_name = val.profitcenter_name
 
       console.log(this.objuserprofile.branch_code)
       this.profile_user = val.user_name
@@ -287,7 +287,7 @@ export default {
       this.showroleall()
       api.callroleinuser(val.id,
         (result) => {
-       
+
           this.objectapp = result.data
           this.getallapp()
           console.log(JSON.stringify(this.objectapp))
@@ -299,16 +299,16 @@ export default {
           M.toast({ html: toastHTML });
           this.cload()
         })
-       
-     
+
+
     },
     getallselect() {
       this.load()
       api.callbranch(
         (result) => {
-          this.selectbranch  = result
+          this.selectbranch = result
 
-         // branch_code
+          // branch_code
           console.log('branchcode : ' + JSON.stringify(result))
           console.log('branchcode : ' + JSON.stringify(result.length))
         },
@@ -317,39 +317,39 @@ export default {
           M.toast({ html: toastHTML });
           this.cload()
         })
-        
-        api.calldepartments(
-          (result) => {
-            this.selectdepartment = result
-          },
-          (error) => {
-            var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
-            M.toast({ html: toastHTML });
-            this.cload()
-          })
 
-          api.callexperts(
-            (result) => {
-              this.selectexpert = result
-            },
-            (error) => {
-              var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
-              M.toast({ html: toastHTML });
-              this.cload()
-            })
+      api.calldepartments(
+        (result) => {
+          this.selectdepartment = result
+        },
+        (error) => {
+          var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+          M.toast({ html: toastHTML });
+          this.cload()
+        })
 
-            api.callprofitcenters(
-              (result) => {
-                this.selectprofitcenter = result
-              },
-              (error) => {
-                var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
-                M.toast({ html: toastHTML });
-                this.cload()
-              })
+      api.callexperts(
+        (result) => {
+          this.selectexpert = result
+        },
+        (error) => {
+          var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+          M.toast({ html: toastHTML });
+          this.cload()
+        })
+
+      api.callprofitcenters(
+        (result) => {
+          this.selectprofitcenter = result
+        },
+        (error) => {
+          var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+          M.toast({ html: toastHTML });
+          this.cload()
+        })
 
     },
-    saveprofile(){
+    saveprofile() {
       var payload = {
         user_code: this.profile_user_code,
         user_name: this.profile_name,
@@ -361,22 +361,23 @@ export default {
         expert_id: this.profile_expert_name2,
         active_status: 1,
         editor_id: Datauser.id,
-        id:this.profile_id,
+        id: this.profile_id,
       }
       console.log(JSON.stringify(payload))
       this.load()
       api.editprofile(payload,
-         (result) => {
+        (result) => {
           this.cload()
-           console.log(result)
+          console.log(result)
+          this.showall()
           var toastHTML = '<span style="color:white">แก้ไข User สำเร็จ </span>';
-            M.toast({ html: toastHTML })
-        },
-         (error) => {
-          this.cload()
-       var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
           M.toast({ html: toastHTML })
-         })
+        },
+        (error) => {
+          this.cload()
+          var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+          M.toast({ html: toastHTML })
+        })
     },
     showroleall() {
       this.load()
@@ -385,7 +386,7 @@ export default {
           this.cload()
           console.log(result.status)
           if (result.status == 'success') {
-            console.log('showrole : ' + JSON.stringify(result.data)) 
+            console.log('showrole : ' + JSON.stringify(result.data))
             this.roleobj = result.data
           }
         },
@@ -395,14 +396,14 @@ export default {
           this.cload()
         })
     },
-    savepermission(val,c){
+    savepermission(val, c) {
       console.log(c)
-    
-     
+
+
       var payload = {
-          role_id: this.editrole,
-          id: val.id
-        }
+        role_id: this.editrole,
+        id: val.id
+      }
       this.editrole = ''
       console.log(JSON.stringify(payload))
       api.edituserrole(payload,
@@ -410,7 +411,7 @@ export default {
           this.cload()
           console.log(result.status)
           if (result.status == 'success') {
-            console.log('showrole : ' + JSON.stringify(result.data)) 
+            console.log('showrole : ' + JSON.stringify(result.data))
             this.detailprofile()
             var toastHTML = '<span style="color:white">แก้ไข User สำเร็จ </span>';
             M.toast({ html: toastHTML })
@@ -422,7 +423,7 @@ export default {
           this.cload()
         })
     },
-    getallapp(){
+    getallapp() {
       api.callappall(
         (result) => {
           this.cload()
@@ -430,20 +431,20 @@ export default {
           // this.allappselect = result.data 
           // this.objectapp
           console.log(JSON.stringify(this.objectapp))  // มีเท่าไร
-          if(this.objectapp == null){
+          if (this.objectapp == null) {
             this.allappselect = []
             return
           }
-         var deSelectedRows = this.objectapp
-         var selectedRows = result.data
-         //กรองค่าที่ซ้ำออก 
-          selectedRows = selectedRows.filter(function(cv){
-            return !deSelectedRows.find(function(e){
-                return e.app_code == cv.app_code;
+          var deSelectedRows = this.objectapp
+          var selectedRows = result.data
+          //กรองค่าที่ซ้ำออก 
+          selectedRows = selectedRows.filter(function (cv) {
+            return !deSelectedRows.find(function (e) {
+              return e.app_code == cv.app_code;
             });
-        });
-        console.log(selectedRows)
-        this.allappselect = selectedRows
+          });
+          console.log(selectedRows)
+          this.allappselect = selectedRows
 
 
         },
@@ -453,7 +454,7 @@ export default {
           this.cload()
         })
     },
-    addperinapp(){
+    addperinapp() {
       var payload = {
         app_id: this.selectaddapp,
         user_id: this.profile_id,
@@ -473,19 +474,13 @@ export default {
           M.toast({ html: toastHTML });
           this.cload()
         })
-   
+
       console.log(JSON.stringify(payload))
     },
   },
   mounted() {
-    // var Datauser = JSON.parse(localStorage.Datauser)
-    // this.Datauser = Datauser.id
-    // console.log(this.Datauser)
-
     this.getallselect()
     this.coloractive = 0
     this.showall()
-
-   
   }
 }

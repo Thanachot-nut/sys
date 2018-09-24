@@ -250,14 +250,14 @@
       สาขา :
         <!-- สาขา : {{ profile_branch_code }} -->
       <select v-model="profile_branch_code2" id="profile_branch" class="form-control selectadduser" name="sellist1">
-        <option v-for="val in selectbranch" :key="val.id" :value="val.id">{{val.branch_code}}</option>
+        <option v-for="val in selectbranch"  :value="val.id">{{val.branch_code}}</option>
       </select>
       </div>
       <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
         หน่วยงาน :
        <!-- หน่วยงาน : {{ profile_department_name }} -->
       <select v-model="profile_department_name2" class="form-control selectadduser" name="sellist1">
-        <option  v-for="val in selectdepartment" :key="val.id" :value="val.id" >{{val.department_name}}</option>
+        <option  v-for="val in selectdepartment"  :value="val.id" >{{val.department_name}}</option>
       </select>
           </div>
       </div>
@@ -269,14 +269,14 @@
       แผนก :
        <!-- แผนก : {{ profile_expert_name }} -->
       <select v-model="profile_expert_name2" class="form-control selectadduser" name="sellist1">
-        <option :key="val.id" v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
+        <option  v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
       </select>
       </div>
       <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
          Profitcenters :
          <!-- Profitcenters : {{ profile_profitcenter_name }} -->
       <select  v-model="profile_profitcenter_name2"  class="form-control selectadduser" name="sellist1">
-        <option :key="val.id" v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option>
+        <option  v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option>
       </select>
           </div>
       </div>
@@ -295,12 +295,12 @@
           </tr>
         </thead>
         <tbody >
-          <tr :key="val.id" id="center" v-for="(val,index) in objectapp">
+          <tr id="center" v-for="(val,index) in objectapp">
               <td style="text-align:center;">{{ index+1 }}</td>
             <td style="text-align:center;">{{ val.app_name}}</td>
             <td style="text-align:center;">{{val.role_name}}</td>
             <td> <select v-model="editrole" @change="savepermission(val,index)"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{val.role_name}}</option>
+        <option v-for="val in roleobj" :value="val.id">{{val.role_name}}</option>
       </select></td>
             </tr>
         </tbody>
@@ -321,12 +321,12 @@
           <tr class="nohover" id="center" >
               <td style="text-align:center">
                  <select v-model="selectaddapp"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="value in allappselect" :key="value.id" :value="value.id">{{value.app_name}}</option>
+        <option v-for="value in allappselect" :value="value.id">{{value.app_name}}</option>
       </select>
               </td>
               <td style="text-align:center">
       <select v-model="selectaddrole"   class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{val.role_name}}</option>
+        <option v-for="val in roleobj" :value="val.id">{{val.role_name}}</option>
       </select></td>
              <td style="text-align:center;">
                <button @click="addperinapp" type="button" class="btn green accent-2" style="position: relative;" >เพิ่ม</button>
