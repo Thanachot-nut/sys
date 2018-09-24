@@ -1,7 +1,7 @@
 <template>
   <div class="User">
     <div class="animationstart animationstart1 "><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
-    font-weight: bold;">Mange User</h4></div>
+    font-weight: bold;">จัดการผู้ใช้</h4></div>
     <div class="container">
       <div class="col-12 col-sm-5 col-md-5 animationstart2 bordercolor" style="display:inline-block">
         <!-- <div style="position:absolute;width:99%;height:120%;border:2px solid rgba(0,0,0,0.25);left:3px;top:-13px;"> </div> -->
@@ -244,17 +244,33 @@
         </div>
         </div>
         </div>
+        <div class="col-12 pdleft0">
+        <div class="row">
+          <div class=" col-6">
+          <div class="input-field formuser" style="position:relative">
+            <input style="position:relative;width:100%" id="E-mail"  type="text" class="validate">
+            <label  class="alwayactive" for="E-mail">E-mail</label>
+          </div>
+        </div>
+        <div class=" col-6">
+          <div class="input-field formuser" style="position:relative">
+            <input style="position:relative;width:100%" id="nickname" type="text" class="validate">
+            <label  class="alwayactive" for="nickname">ชื่อเล่น</label>
+          </div>
+        </div>
+        </div>
+        </div>
 <div class="col-12 pdleft0">
         <div class="row">
          <div class="col-6" style="position:relative;text-align:center;white-space: nowrap;">
-      สาขา :
+      สถานที่ทำงาน :
         <!-- สาขา : {{ profile_branch_code }} -->
       <select v-model="profile_branch_code2" id="profile_branch" class="form-control selectadduser" name="sellist1">
         <option v-for="val in selectbranch" :key="val.id" :value="val.id">{{val.branch_code}}</option>
       </select>
       </div>
       <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
-        หน่วยงาน :
+        แผนก :
        <!-- หน่วยงาน : {{ profile_department_name }} -->
       <select v-model="profile_department_name2" class="form-control selectadduser" name="sellist1">
         <option  v-for="val in selectdepartment" :key="val.id" :value="val.id" >{{val.department_name}}</option>
@@ -266,14 +282,14 @@
 <div class="col-12 pdleft0">
         <div class="row">
          <div class="col-6" style="position:relative;text-align:center;white-space: nowrap;">
-      แผนก :
+      สำหรับจัดซื้อ :
        <!-- แผนก : {{ profile_expert_name }} -->
       <select v-model="profile_expert_name2" class="form-control selectadduser" name="sellist1">
         <option :key="val.id" v-for="val in selectexpert" :value="val.id">{{ val.expert_code}}</option>
       </select>
       </div>
       <div class="col-6" style="padding-left: 0px;position:relative;text-align:center;white-space: nowrap;">
-         Profitcenters :
+         ศูนย์ธุรกิจ :
          <!-- Profitcenters : {{ profile_profitcenter_name }} -->
       <select  v-model="profile_profitcenter_name2"  class="form-control selectadduser" name="sellist1">
         <option :key="val.id" v-for="val in selectprofitcenter" :value="val.id">{{val.profitcenter_name}}</option>
@@ -299,8 +315,10 @@
               <td style="text-align:center;">{{ index+1 }}</td>
             <td style="text-align:center;">{{ val.app_name}}</td>
             <td style="text-align:center;">{{val.role_name}}</td>
-            <td> <select v-model="editrole" @change="savepermission(val,index)"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{val.role_name}}</option>
+            <td style="position:relative"> 
+              <font-awesome-icon style="position: absolute; right: 50px; top: 50%; z-index: 99; transform: translateY(-50%);" icon="pencil-alt" />
+              <select v-model="editrole" @change="savepermission(val,index)"  class="form-control selectadduser" style="width:90%;" name="sellist1">
+        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{ val.role_name }}</option>
       </select></td>
             </tr>
         </tbody>
@@ -312,8 +330,8 @@
 <table  class="highlight bordercolor" style="float:left;">
         <thead>
           <tr >
-            <th>แอพ</th>
-            <th>ตำแหน่ง</th>
+            <th>ชื่อแอพ</th>
+            <th>สิทธิ</th>
               <th>เพิ่ม</th>
           </tr>
         </thead>
@@ -321,7 +339,7 @@
           <tr class="nohover" id="center" >
               <td style="text-align:center">
                  <select v-model="selectaddapp"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="value in allappselect" :key="value.id" :value="value.id">{{value.app_name}}</option>
+        <option v-for="value in allappselect" v-if="value.app_code != ''" :key="value.id" :value="value.id">{{value.app_name}}</option>
       </select>
               </td>
               <td style="text-align:center">

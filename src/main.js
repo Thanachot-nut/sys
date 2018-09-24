@@ -7,9 +7,10 @@ import router from './router'
 import '../node_modules/materialize-css/dist/css/materialize.css'
 import '../node_modules/materialize-css/dist/js/materialize'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee, faUser, faKey, faSearch, faPlus, faStop, faTerminal, faTag, faCheck, faBan, faInfo, faPen, faSignature, faUnlock, faPhone, faChevronLeft, faChevronRight, faAppleAlt, faAddressCard } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faUser, faKey, faSearch, faPlus, faStop, faTerminal, faTag, faCheck, faBan, faInfo, faPen, faSignature, faUnlock, faPhone, faChevronLeft, faChevronRight, faAppleAlt, faAddressCard, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faPencilAlt)
 library.add(faSearch)
 library.add(faUser)
 library.add(faStop)

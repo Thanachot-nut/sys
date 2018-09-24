@@ -2,7 +2,7 @@
   <div class="Main">
     <div class="col-12" align="center">
       <h4 style="text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
-    font-weight: bold;">Welcome to Menu</h4>
+    font-weight: bold;">เมนูหลัก</h4>
     </div>
     <div class="container">
     

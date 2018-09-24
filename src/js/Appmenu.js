@@ -1,5 +1,7 @@
 import api from "../service/service.js"
+if(localStorage.Datauser){
 var Datauser = JSON.parse(localStorage.Datauser)
+}
 export default {
   name: "App",
   data() {

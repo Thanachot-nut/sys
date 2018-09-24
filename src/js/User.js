@@ -1,5 +1,7 @@
 import api from "../service/service.js"
-var Datauser = JSON.parse(localStorage.Datauser)
+if(localStorage.Datauser){
+  var Datauser = JSON.parse(localStorage.Datauser)
+  }
 export default {
   name: "User",
   data() {
@@ -86,7 +88,18 @@ export default {
       api.showalluser(this.usercode,
         (result) => {
           this.cload()
-          console.log(result.status)
+         if(result == null){
+          this.objuser = [{
+            sale_code : '-',
+            user_name : '-',
+            user_code : '-',
+            profitcenter_name : '-',
+            department_code : '-',
+            telephone : '-'
+          }]
+          this.page = 0;
+          return
+         }
           console.log('result length ::' + result.length)
           var page = (result.length) / 20
           console.log('page :' + page)
@@ -97,6 +110,7 @@ export default {
           
         },
         (error) => {
+          // console.log('dasdsa')
           this.cload()
           var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
           M.toast({ html: toastHTML })
@@ -146,6 +160,7 @@ export default {
             this.username_add = ''
             this.password_add = ''
             this.phone_add = ''
+            this.showall()
           }
         },
         (error) => {
@@ -259,6 +274,7 @@ export default {
       this.profile_expert_name2 = ''
       this.profile_profitcenter_name = ''
       // clear
+      // ข้อมูลใส่ profile
       console.log(JSON.stringify(val))
       this.objuserprofile = val
       this.profile_name = val.user_name
@@ -270,7 +286,7 @@ export default {
       this.profile_department_name = val.department_name
       this.profile_expert_name = val.expert_code
       this.profile_profitcenter_name =  val.profitcenter_name
-
+       // ข้อมูลใส่ profile
       console.log(this.objuserprofile.branch_code)
       this.profile_user = val.user_name
 
@@ -371,6 +387,7 @@ export default {
            console.log(result)
           var toastHTML = '<span style="color:white">แก้ไข User สำเร็จ </span>';
             M.toast({ html: toastHTML })
+            this.showall()
         },
          (error) => {
           this.cload()
@@ -397,8 +414,6 @@ export default {
     },
     savepermission(val,c){
       console.log(c)
-    
-     
       var payload = {
           role_id: this.editrole,
           id: val.id
@@ -427,13 +442,20 @@ export default {
         (result) => {
           this.cload()
           console.log(JSON.stringify(result.data)) //ทั้งหมด
-          // this.allappselect = result.data 
-          // this.objectapp
+          
+          // ลบค่าว่างออก
+          // for (let x = 0; x < result.data.length; x++) {
+          //   if(result.data[x].app_code == ''){
+          //     delete result.data[x]
+          //   }
+          // }
+          // ลบค่าว่างออก
+
           console.log(JSON.stringify(this.objectapp))  // มีเท่าไร
           if(this.objectapp == null){
-            this.allappselect = []
-            return
+            this.allappselect = result.data
           }
+          console.log(result.data)
          var deSelectedRows = this.objectapp
          var selectedRows = result.data
          //กรองค่าที่ซ้ำออก 

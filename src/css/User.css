@@ -263,3 +263,6 @@ table.highlight > tbody > tr:hover {
 .mt10{
   margin-top:10px
 }
+tr td{
+  text-align: center
+}
