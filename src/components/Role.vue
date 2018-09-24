@@ -1,7 +1,7 @@
 <template>
   <div class="Role">
     <div style="text-align:center;"><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
-    font-weight: bold;" class="animationstart1">Mange Role</h4></div>
+    font-weight: bold;" class="animationstart1">จัดการ Role</h4></div>
       <div class="container">
               
          <div class="col-12 col-sm-8 col-md-8 animationstart1 bordercolor" style="float:left">

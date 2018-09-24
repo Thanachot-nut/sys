@@ -1,7 +1,7 @@
 <template>
   <div class="Per">
            <div class="animationstart1" style="text-align:center;"><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
-    font-weight: bold;">Permission</h4></div>
+    font-weight: bold;">จัดการ Permission</h4></div>
       <div class="container">
           <div class="row">
 

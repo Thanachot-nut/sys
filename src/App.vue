@@ -57,7 +57,7 @@ export default {
   		this.username()
     }.bind(this),1000)
     
-    //  console.log(this.$router)
+     console.log(this.$router)
   }
 }
 </script>

@@ -1,5 +1,8 @@
 import api from "../service/service.js"
-var Datauser = JSON.parse(localStorage.Datauser)
+if(localStorage.Datauser){
+  var Datauser = JSON.parse(localStorage.Datauser)
+  }
+
 export default {
   name: "role",
   data() {

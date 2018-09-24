@@ -1,7 +1,7 @@
 <template>
   <div class="Appmenu">
   <div class="animationstart1" ><h4 style="text-align:center;text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);letter-spacing: 8px;
-    font-weight: bold;">Mange App and Menu</h4></div>
+    font-weight: bold;">จัดการแอพ และ เมนู</h4></div>
      <div class="container">
       
          <div class="col-12 col-sm-8 col-md-8 animationstart2 bordercolor" style="float:left">
@@ -147,7 +147,7 @@
           <tr id="center" v-for="value in contentmodal" >
             <td>{{ value.menu_name}}</td>
              <td>{{ value.description}}</td>
-            <td @click="statusmodal1(value,value.active_status)" ><div :class="'status'+value.active_status" style="width:100%;height:100%;color:white;">{{ returnactive(value.active_status) }} </div></td>
+            <td style="cursor:pointer" @click="statusmodal1(value,value.active_status)" ><div :class="'status'+value.active_status" style="width:100%;height:100%;color:white;">{{ returnactive(value.active_status) }} </div></td>
             </tr>
         </tbody>
       </table>

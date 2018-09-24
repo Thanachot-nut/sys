@@ -1,3 +1,5 @@
+
+  
 .status1{
     background: #00e676;
     animation: loopcolorgreen 2s infinite;
@@ -171,7 +173,7 @@ textarea::placeholder {
     cursor: pointer;
   }
   .fontmodal{
-    color:#69F0AE;font-size:20px;position:absolute;transition: all 0.5s;
+    color:#f06292;font-size:20px;position:absolute;transition: all 0.5s;
     cursor: pointer;left: -10px;top: 20px;
   }
   .fontawecolorred{
@@ -338,4 +340,7 @@ table.highlight > tbody > tr:hover {
   .mt10{
     margin-top:0 !important;
   }
+}
+tr td {
+  text-align: center;
 }
