@@ -24,7 +24,7 @@
       </div>
       <div class="col-12 col-sm-4 col-md-4 animationstart2" style="float:left;position:relative;">
         <div class="form-group"><div class="input-field col" style="position: relative;"><button data-toggle="modal" data-target="#exampleModal" type="submit" name="action" class="btn waves-effect cyan accent-3"><svg aria-hidden="true" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-plus fa-w-14" style="color: white; font-size: 20px; position: relative; top: 2.5px; margin-right: 5px;"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" class=""></path></svg>
-          Add Role
+          เพิ่ม Role
           </button></div></div>
       </div>
    
@@ -40,8 +40,8 @@
         </thead>  
         <tbody>
           <tr v-for="val in roleobj" >
-            <td>{{val.role_name}}</td>
-             <td>{{val.description}}</td>
+            <td style="cursor:pointer" @click="editrole(val)" data-toggle="modal" data-target="#editrole">{{val.role_name}}</td>
+             <td style="cursor:pointer" @click="editrole(val)" data-toggle="modal" data-target="#editrole">{{val.description}}</td>
              <td style="cursor:pointer" @click="onrole(val,val.active_status)"> <div :class="bg = 'status'+val.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(val.active_status) }}</div></td>
              <!-- <td style="position:relative;width:10%;text-align:center"> <font-awesome-icon v-show="val.active_status == 0" class="fontawecolorgreen" icon="check" />
              <font-awesome-icon v-show="val.active_status == 1" class="fontawecolorred" @click="turnoffapp(val)"  icon="ban" /></td></tr>
@@ -51,7 +51,7 @@
       </table>
      </div>
          </div>
-         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" align="center">
@@ -96,6 +96,31 @@
     </div>
   </div>
 </div>
+
+<!-- แก้ไข role -->
+ <div class="modal fade" id="editrole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" align="center">
+        <h5 class="modal-title " id="exampleModalLabel">แก้ไข Role</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        รหัส Role : <input v-model="role_code" type="text" class="form-control">
+        ชื่อ Role<input v-model="role_name" type="text" class="form-control">
+        คำอธิบาย <input v-model="description" type="text" class="form-control">
+      </div>
+      <div class="modal-footer ">
+        
+        <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button>
+        <button type="button" class="btn green accent-2" @click="addeditrole">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- แก้ไข role -->
   </div>
 </template>
 

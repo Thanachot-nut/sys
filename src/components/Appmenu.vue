@@ -64,7 +64,7 @@
                  <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="terminal" />
           </div>
           <div class="containtext">
-            <input type="text" placeholder="App Code" v-model="appcodec" class="form-control2">
+            <input type="text" placeholder="รหัสแอพ" v-model="appcodec" class="form-control2">
             </div>
         </div>
         <div class="containmodal animationtext2">
@@ -72,7 +72,7 @@
                  <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="tag" />
           </div>
           <div class="containtext">
-            <input type="text" placeholder="App Name" v-model="appnamec" class="form-control2">
+            <input type="text" placeholder="ชื่อแอพ" v-model="appnamec" class="form-control2">
             </div>
         </div>
 
@@ -81,7 +81,7 @@
                 <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="info" />
           </div>
           <div class="containtext">
-            <textarea class="form-control" v-model="detailc" placeholder="Detail"></textarea>
+            <textarea class="form-control" v-model="detailc" placeholder="รายละเอียด"></textarea>
           </div>
          </div>
 
@@ -100,14 +100,24 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" align="center">
-        <h5 class="modal-title animationtextf" id="exampleModalLabel">{{ topicmodal }}</h5>
+        <h5 class="modal-title animationtextf" id="exampleModalLabel">แอพ {{ topicmodal }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-         <button @click="togglemenufun" type="button" class="btn green accent-2 animationtext1">เพิ่มเมนู</button>
-         <div v-show="toggleaddmenu == 1">
+        <button type="button" @click="showeditapp = !showeditapp" class="btn green accent-2 "><div v-show="!showeditapp">แก้ไขแอพ</div><div v-show="showeditapp">ย้อนกลับ</div></button>
+        <div v-show="showeditapp">
+          <div style="margin-top:10px;">
+          รหัสแอพ<input v-model="app_code" type="text" class="form-control">
+          ชื่อแอพ<input v-model="app_name" type="text" class="form-control">
+          รายละเอียด<input v-model="description" type="text" class="form-control">
+          </div>
+          
+        </div>
+
+        <div v-show="!showeditapp">
+          <div v-show="toggleaddmenu == 1">
          <div style="width:100%;height:auto;border-top: 1px solid #e9ecef;padding-top:10px;margin-top:10px;">
             <div class="row" style="margin-left:5px;">
         <div class="input-field col s6 animationtext1">
@@ -130,12 +140,26 @@
           <font-awesome-icon class="fontmodal" style="left: -2px;"  icon="info"  />
            <button type="button"  class="btn pink lighten-2" @click="addmenusub" >บันทึกข้อมูล</button>
         </div>
-          
           </div>
-   
          </div>
-        
-       <table class="highlight animationtext2 bordercolor" style="margin-top:10px;float:left;">
+        <div style="margin-top:10px;text-align:center;" >
+      <h5 v-show="!showeditmenu" style="font-weight:bold;">ตารางเมนู</h5>
+  
+        <div  style="text-align:left;border:1px solid rgba(0,0,0,0.25);padding:10px" v-show="showeditmenu">
+          <div style="margin-bottom:5px;text-align:center;">
+        <button v-show="showeditmenu" type="button" @click="showeditmenu = !showeditmenu" style="float:right;" class="btn green accent-2 ">ย้อนกลับ</button>
+        <h5 v-show="showeditmenu" style="font-weight:bold;">แก้ไขเมนู</h5>
+        </div>
+          รหัสเมนู <input v-model="menu_code" type="text" class="form-control">
+          ชื่อเมนู <input v-model="menu_name" type="text" class="form-control">
+          รายละเอียดเมนู <input v-model="menu_description" type="text" class="form-control">
+       <button   type="button" @click="data_editmenu" style="float:right;min-height:36px;margin-top:10px;" class="btn green accent-2 ">บันทึก</button>
+        <br>
+        <br>
+        </div>
+
+
+       <table v-show="!showeditmenu" class="highlight  bordercolor" style="float:left;">
         <thead>
           <tr >
             <th>ชื่อเมนู</th>
@@ -145,35 +169,23 @@
         </thead>  
         <tbody>
           <tr id="center" v-for="value in contentmodal" >
-            <td>{{ value.menu_name}}</td>
-             <td>{{ value.description}}</td>
+            <td  style="cursor:pointer"  @click="editmenu(value), showeditmenu = !showeditmenu">{{ value.menu_name}}</td>
+             <td style="cursor:pointer"  @click="editmenu(value), showeditmenu = !showeditmenu">{{ value.description}}</td>
             <td style="cursor:pointer" @click="statusmodal1(value,value.active_status)" ><div :class="'status'+value.active_status" style="width:100%;height:100%;color:white;">{{ returnactive(value.active_status) }} </div></td>
             </tr>
         </tbody>
       </table>
-      
-        <!-- <div class="containmodal animationtext2">
-          <div class="containfont">
-                 <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="tag" />
-          </div>
-          <div class="containtext">
-            <input type="text" placeholder="App Name" v-model="appnamec" class="form-control2">
-            </div>
+      </div>
         </div>
 
-         <div class="containmodal animationtext3" style="height:60px;">
-          <div class="containfont" >
-                <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="info" />
-          </div>
-          <div class="containtext">
-            <textarea class="form-control" v-model="detailc" placeholder="Detail"></textarea>
-          </div>
-         </div> -->
+
 
       </div>
-      <div class="modal-footer animationtext4">
-        
-        <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button>
+      <div class="modal-footer ">
+         <button v-show="showeditapp" type="button" @click="editapp_button" style="float:right;" class="btn green accent-2 ">บันทึก</button>
+         
+         <button v-show="!showeditapp" @click="togglemenufun" type="button" class="btn green accent-2 ">เพิ่มเมนู</button>
+        <button  v-show="!showeditapp" type="button" class="btn orange darken-3" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn green accent-2" @click="newapp">Save</button> -->
       </div>
     </div>

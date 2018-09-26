@@ -216,6 +216,15 @@ export default {
         error(response)
       })
   },
+  addrole(data,success, error) {
+    Vue.axios.post(URL + ':9000/role',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
   editprofile(data,success, error) {
     Vue.axios.put(URL + ':9000/user',JSON.stringify(data)).then(
       (response) => {
@@ -245,6 +254,33 @@ export default {
   },
   insertuserrole(data,success, error) {
     Vue.axios.post(URL + ':9000/userrole',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  editrole(data,success, error) {
+    Vue.axios.put(URL + ':9000/role',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  updateapp(data,success, error) {
+    Vue.axios.put(URL + ':9000/app',JSON.stringify(data)).then(
+      (response) => {
+        success(response.data)
+      },
+      (response) => {
+        error(response)
+      })
+  },
+  updatemenu_a(data,success, error) {
+    Vue.axios.put(URL + ':9000/menu',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },

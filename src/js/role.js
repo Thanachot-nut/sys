@@ -13,6 +13,11 @@ export default {
       rolecode:'',
       rolename:'',
       roledescrip:'',
+      role_code:'',
+      role_name:'',
+      description:'',
+      active_status:'',
+      id_role:''
     }
   },
   methods: {
@@ -40,14 +45,32 @@ export default {
       document.getElementById("loading").style.display = "none";
     },
     addrole(){
+      this.load()
       var payload = {
         role_code: this.rolecode,
         role_name: this.rolename,
         description: this.roledescrip,
         active_status:1,
-        creator_id:1
+        creator_id:Datauser.id
       }
       console.log('payload result : '+JSON.stringify(payload))
+    api.addrole(payload,
+      (result) => {
+        this.cload()
+        if (result.status == 'success') {
+          console.log('เพิ่มนะ :' + JSON.stringify(result))
+          // console.log('Datauser'+localStorage.Datauser)
+          // this.DataUser = result.data
+          var toastHTML = '<span style="color:white">เพิ่ม Role สำเร็จ !!!</span>';
+          M.toast({ html: toastHTML });
+          this.showroleall()
+        }
+      },
+      (error) => {
+        var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+        M.toast({ html: toastHTML });
+        this.cload()
+      })
     },
     changestatus(val){
       var x;
@@ -58,6 +81,45 @@ export default {
         var x = 'Not Running'
         return x
       }
+    },
+    editrole(val){
+      console.log(JSON.stringify(val))
+      console.log(val.role_code)
+      this.role_code = val.role_code
+      this.role_name = val.role_name
+      this.description = val.description
+      this.active_status = val.active_status
+      this.id_role = val.id
+    },
+    addeditrole(){
+      this.load()
+      var payload = {
+       role_code:this.role_code,
+      role_name:this.role_name,
+      description:this.description,
+      active_status:this.active_status,
+      editor_id:Datauser.id,
+      id: this.id_role
+    }
+    console.log(payload)
+    api.editrole(payload,
+      (result) => {
+        this.cload()
+        if (result.status == 'success') {
+          console.log('resultchange :' + JSON.stringify(result))
+          // console.log('Datauser'+localStorage.Datauser)
+          // this.DataUser = result.data
+          var toastHTML = '<span style="color:white">แก้ไข Role สำเร็จ !!!</span>';
+          M.toast({ html: toastHTML });
+          this.showroleall()
+        }
+      },
+      (error) => {
+        var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';
+        M.toast({ html: toastHTML });
+        this.cload()
+      })
+
     },
     onrole(val,status){
       console.log('on app'+JSON.stringify(val))
