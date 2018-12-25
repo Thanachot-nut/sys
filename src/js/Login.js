@@ -1,4 +1,7 @@
 import api from "../service/service.js"
+import Loading from 'vue-loading-overlay';
+// Import stylesheet
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 export default {
   name: "Login",
@@ -7,16 +10,25 @@ export default {
       msg: "Welcome to Your Vue.js App",
       user: "",
       pass: "",
+      isLoading: false,
+      fullPage: true,
     }
   },
+  components: {
+    Loading
+},
   methods: {
+    
     login() {
-      this.load()
+      this.isLoading = true;
+      setTimeout(() => {
       api.signin(this.user, this.pass,
         (result) => {
+          this.isLoading = false;
           this.cload()
           console.log(result.status)
           if (result.status == 'success') {
+            
             console.log('login :' + JSON.stringify(result))
             localStorage.Datauser = JSON.stringify(result.data)
             // console.log('Datauser'+localStorage.Datauser)
@@ -27,11 +39,12 @@ export default {
           }
         },
         (error) => {
+          this.isLoading = false;
           var toastHTML = '<span style="color:white;font-weight:bold">Username or Password Wrong !!!</span>';
           M.toast({ html: toastHTML });
           this.cload()
-
         })
+      },3000);
     },
     load(){
       document.getElementById("loading").style.display = "block";

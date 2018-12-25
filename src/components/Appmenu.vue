@@ -169,6 +169,7 @@
                 <table v-show="!showeditmenu" class="highlight  bordercolor" style="float:left;">
                   <thead>
                     <tr>
+                      <th>แอพไอดี</th>
                       <th>ชื่อเมนู</th>
                       <th>รายละเอียด</th>
                       <th>สถานะ</th>
@@ -176,6 +177,7 @@
                   </thead>
                   <tbody>
                     <tr id="center" v-for="value in contentmodal">
+                      <td>{{value.app_id}}</td>
                       <td style="cursor:pointer" @click="editmenu(value), showeditmenu = !showeditmenu">{{ value.menu_name}}</td>
                       <td style="cursor:pointer" @click="editmenu(value), showeditmenu = !showeditmenu">{{ value.description}}</td>
                       <td style="cursor:pointer" @click="statusmodal1(value,value.active_status)">
