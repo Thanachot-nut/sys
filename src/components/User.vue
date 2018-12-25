@@ -41,11 +41,7 @@
               <font-awesome-icon style="position:absolute;color:white;font-size:25px;top:50%;left:50%;transform:translate(-50%,-50%)" icon="pen" />
             </div>
             <input style="position:relative;left: 45px;
-<<<<<<< HEAD
-    width: 80%;" v-model="username_add" id="usercode_add" type="text" class="validate">
-=======
     width: 80%;" v-model="usercode_add" id="usercode_add" type="text" class="validate">
->>>>>>> 68308578daf1013c61b2e01239c803ca91bcf0a5
             <label style="left:96px;" class="edit_respon" for="usercode_add">ชื่อ - นามสกุล</label>
           </div>
           <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
@@ -65,11 +61,7 @@
               <font-awesome-icon style="position:absolute;color:white;font-size:25px;top:50%;left:50%;transform:translate(-50%,-50%)" icon="signature" />
             </div>
             <input style="position:relative;left: 45px;
-<<<<<<< HEAD
-    width: 80%;" v-model="usercode_add" id="username_add" type="text" class="validate">
-=======
     width: 80%;" v-model="username_add" id="username_add" type="text" class="validate">
->>>>>>> 68308578daf1013c61b2e01239c803ca91bcf0a5
             <label style="left:96px;"  class="edit_respon" for="username_add">ผู้ใช้ (Username)</label>
           </div>
             <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
