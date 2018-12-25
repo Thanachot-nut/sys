@@ -6,19 +6,19 @@
           <div class="row">
 
         
-       <div  class="col-12 col-sm-12 col-md-3 rela  animationstart3" style="display:inline-block;margin-top:10px;">
+       <div class="col-12 col-sm-12 col-md-3 rela animationstart3" style="display:inline-block;margin-top:10px;">
             <div class="row">
             <div class="col-11 bordercolor">
                <!-- table  -->
         <table class="highlight" style="margin-top:10px;float:left;">
           <tr>
             <td style="font-weight:bold;text-align:center;font-size:1.5rem;">
-               <font-awesome-icon  icon="apple-alt" />  APP
+              <font-awesome-icon  icon="apple-alt" />  APP
             </td>
           </tr>
         <tbody>
           <tr v-for="(val,index) in appall">
-            <td :class="{active: colorapp === index}" @click="showrole(val,index)" >{{checknovalue(val.app_name)}}</td>
+            <td v-show="val.active_status" :class="{active: colorapp === index}" @click="showrole(val,index)" >{{checknovalue(val.app_name)}}</td>
           </tr>
         </tbody>
       </table>
@@ -34,11 +34,11 @@
            <table class="highlight  " style="margin-top:10px;float:left;">
           <tr>
             <td style="font-weight:bold;text-align:center;font-size:1.5rem;">
-               <font-awesome-icon  icon="address-card" />   Role</td>
+               <font-awesome-icon  icon="address-card" /> Role</td>
           </tr>
         <tbody>
           <tr v-for="(val,index) in apptorole">
-            <td :class="{active: colorrole === index}"  @click="permissions(val,index)" >{{checknovalue(val.role_name)}}</td>
+            <td  :class="{active: colorrole === index}"  @click="permissions(val,index)" >{{checknovalue(val.role_name)}}</td>
           </tr>
            </tbody>
           <tr id="nohover">

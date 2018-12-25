@@ -56,7 +56,8 @@ export default {
       allappselect:[],
       selectaddrole:'',
       selectaddapp:'',
-      idlogin:0
+      idlogin:0,
+      profile_active_status:0,
     }
   },
   methods: {
@@ -133,6 +134,13 @@ export default {
     insertuser() {
       console.log('add User')
       this.load()
+      if(this.usercode_add == '' || this.username_add == '' || this.password_add == '' ||  this.phone_add == '' 
+    || this.V_selectbranch == '' || this.V_profitcenter == '' || this.V_department == '' || this.V_expert == ''){
+      var toastHTML = '<span style="color:white;">กรุณากรอกข้อมูลให้ครบ</span>';
+      M.toast({ html: toastHTML , classes: 'rounded' });
+      this.cload()
+      return
+    }
       var payload = {
         user_code: this.usercode_add,
         user_name: this.username_add,
@@ -151,11 +159,8 @@ export default {
           console.log(result.status)
           if (result.status === 'success') {
             console.log('insert :' + JSON.stringify(result))
-            // console.log('Datauser'+localStorage.Datauser)
-            // this.DataUser = result.data
             var toastHTML = '<span style="color:white">เพิ่ม User สำเร็จ </span>';
             M.toast({ html: toastHTML })
-            // this.$router.push('/index')
             this.usercode_add = ''
             this.username_add = ''
             this.password_add = ''
@@ -190,10 +195,6 @@ export default {
           this.page = parseInt(page) + 1
 
           this.objuser = result.slice(this.prevpage, this.nextpage)
-          // console.log(this.objuser)
-          // console.log(JSON.stringify(this.objuser))
-          // var toastHTML = '<span style="color:white">ค้นหา ' + usercode + ' สำเร็จ </span>';
-          // M.toast({ html: toastHTML })
 
         },
         (error) => {
@@ -216,10 +217,11 @@ export default {
       alert('dddd')
     },  
     status0(val,status) {
+      console.log(val,status)
       if(status == true){
-        status = 0
+         status = 0
       }else if(status == false){
-        status = 1
+         status = 1
       }
       console.log(status)
       console.log('on app' + JSON.stringify(val))
@@ -280,6 +282,7 @@ export default {
       this.profile_name = val.user_name
       this.profile_telephone = val.telephone
       this.profile_user_code = val.user_code
+      this.profile_active_status = val.active_status
       this.profile_password = val.password
       this.profile_id = val.id
       this.profile_branch_code = val.branch_code

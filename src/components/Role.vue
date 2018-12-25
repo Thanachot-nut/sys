@@ -66,7 +66,7 @@
                  <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="terminal" />
           </div>
           <div class="containtext">
-            <input type="text" placeholder="Role Code" v-model="rolecode" class="form-control2">
+            <input type="text" placeholder="รหัส Role" v-model="rolecode" class="form-control2">
             </div>
         </div>
         <div class="containmodal swing-in-right-fwd3">
@@ -74,7 +74,7 @@
                  <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="tag" />
           </div>
           <div class="containtext">
-            <input type="text" placeholder="Role Name" v-model="rolename" class="form-control2">
+            <input type="text" placeholder="ชื่อ Role" v-model="rolename" class="form-control2">
             </div>
         </div>
 
@@ -83,7 +83,7 @@
                 <font-awesome-icon style="color:white;font-size:20px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)" icon="info" />
           </div>
           <div class="containtext">
-            <textarea class="form-control" v-model="roledescrip" placeholder="Description"></textarea>
+            <textarea class="form-control" v-model="roledescrip" placeholder="คำอธิบาย"></textarea>
           </div>
          </div>
 
@@ -106,12 +106,16 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
+      </div> 
+      <div class="modal-body" v-show="active_status">
         รหัส Role : <input v-model="role_code" type="text" class="form-control">
         ชื่อ Role<input v-model="role_name" type="text" class="form-control">
         คำอธิบาย <input v-model="description" type="text" class="form-control">
       </div>
+       <div class="modal-body" v-show="!active_status">
+        
+         <div  style="color:red;text-align:center;font-size:30px;"> Role นี้ยังไม่ได้เปิดให้ใช้งาน </div>
+       </div>
       <div class="modal-footer ">
         
         <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button>

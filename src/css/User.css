@@ -266,3 +266,9 @@
   tr td{
     text-align: center
   }
+
+  @media only screen and (min-width: 1734px) {
+    .edit_respon {
+      left: 104px !important;
+    }
+}

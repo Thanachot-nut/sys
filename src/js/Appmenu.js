@@ -27,13 +27,14 @@ export default {
       app_code: '',
       app_name: '',
       description: '',
-      edit_id:'',
-      showeditmenu:false,
-      menu_code :'',
-      menu_name :'',
-      menu_description :'',
-      app_id  : '', 
-      idid : '',
+      edit_id: '',
+      showeditmenu: false,
+      menu_code: '',
+      menu_name: '',
+      menu_description: '',
+      app_id: '',
+      idid: '',
+      active_status: '',
     }
   },
   methods: {
@@ -80,12 +81,20 @@ export default {
     newapp() {
       this.load()
       var all = new Date()
+      //validation
+      if (this.appcodec == '' || this.appnamec == '' || this.detailc == '') {
+        var toastHTML = '<span style="color:white;">กรุณากรอกข้อมูลให้ครบ</span>';
+        M.toast({ html: toastHTML });
+        this.cload()
+        return
+      }
+      //validation
       var payload = {
         app_code: this.appcodec,
         app_name: this.appnamec,
         description: this.detailc,
         active_status: 1,
-        creator_id:  Datauser.id,
+        creator_id: Datauser.id,
         create_date_time: all.getFullYear() + '/' + all.getMonth() + '/' + all.getDate()
       }
       console.log(JSON.stringify(payload))
@@ -257,10 +266,10 @@ export default {
           this.cload()
         })
     },
-     showinfo(val) {
+    showinfo(val) {
       // close content add modal
-      if(val == null){
-       var val = this.sendobj
+      if (val == null) {
+        var val = this.sendobj
       }
       this.toggleaddmenu = 0
       // 
@@ -270,6 +279,7 @@ export default {
       this.app_code = val.app_code
       this.app_name = val.app_name
       this.description = val.description
+      this.active_status = val.active_status
       //editapp
       this.sendobj = val
       console.log('showinfo :' + JSON.stringify(val))
@@ -331,7 +341,12 @@ export default {
       }
     },
     addmenusub() {
-
+      if (this.addmenucode == '' || this.addmenuname == '' || this.addmenudescription == '') {
+        var toastHTML = '<span style="color:white;">กรุณากรอกข้อมูลให้ครบ</span>';
+        M.toast({ html: toastHTML, classes: 'rounded' });
+        this.cload()
+        return
+      }
       var payload = {
         menu_code: this.addmenucode,
         menu_name: this.addmenuname,
@@ -359,7 +374,7 @@ export default {
           this.cload()
         })
     },
-    editmenu(val){
+    editmenu(val) {
       console.log(val)
       this.menu_code = val.menu_code
       this.menu_name = val.menu_name
@@ -367,27 +382,27 @@ export default {
       this.app_id = val.app_id
       this.idid = val.id
     },
-    data_editmenu(){
+    data_editmenu() {
       this.load()
       var payload = {
-        menu_code:this.menu_code,
-        menu_name:this.menu_name,
-        app_id:this.app_id,
-        description:this.menu_description,
-        active_status:1,
-        editor_id:Datauser.id,
-        id:this.idid
+        menu_code: this.menu_code,
+        menu_name: this.menu_name,
+        app_id: this.app_id,
+        description: this.menu_description,
+        active_status: 1,
+        editor_id: Datauser.id,
+        id: this.idid
       }
       console.log(JSON.stringify(payload))
       api.updatemenu_a(payload,
         (result) => {
           this.cload()
           if (result.status == 'success') {
-            var toastHTML = '<span style="color:white">แก้ไขสำเร็จเมนู '+this.menu_name+' !!!</span>';
+            var toastHTML = '<span style="color:white">แก้ไขสำเร็จเมนู ' + this.menu_name + ' !!!</span>';
             M.toast({ html: toastHTML });
             this.showeditmenu = false
             this.showinfo()
-          } 
+          }
         },
         (error) => {
           var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด !!!</span>';

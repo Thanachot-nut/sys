@@ -171,7 +171,6 @@ export default {
           this.colorapp = index //toggle color
          console.log(JSON.stringify(result.data))
           this.apptorole = result.data
-
         },
         (error) => {
           var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด  !!!</span>';
@@ -181,15 +180,13 @@ export default {
     },
     permissions(val,index){
       this.load()
-      // console.log(val.role_id)
+      console.log(val)
       // console.log('appid : '+this.appid)
       api.permissionall(val.role_id,this.appid,
         (result) => {
-          this.cload()
-          this.colorrole = index //toggle color
-        
+        this.cload()
+        this.colorrole = index //toggle color
         this.permissionall = result.data
-
         },
         (error) => {
           var toastHTML = '<span style="color:white;font-weight:bold">เกิดข้อผิดพลาด  !!!</span>';

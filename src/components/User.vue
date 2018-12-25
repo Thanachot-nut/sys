@@ -41,8 +41,8 @@
               <font-awesome-icon style="position:absolute;color:white;font-size:25px;top:50%;left:50%;transform:translate(-50%,-50%)" icon="pen" />
             </div>
             <input style="position:relative;left: 45px;
-    width: 80%;" v-model="usercode_add" id="usercode_add" type="text" class="validate">
-            <label style="left:96px;" for="usercode_add">Usercode</label>
+    width: 80%;" v-model="username_add" id="usercode_add" type="text" class="validate">
+            <label style="left:96px;" class="edit_respon" for="usercode_add">ชื่อ - นามสกุล</label>
           </div>
           <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
         <!-- <label for="sel1">Select list (select one):</label> -->
@@ -61,8 +61,8 @@
               <font-awesome-icon style="position:absolute;color:white;font-size:25px;top:50%;left:50%;transform:translate(-50%,-50%)" icon="signature" />
             </div>
             <input style="position:relative;left: 45px;
-    width: 80%;" v-model="username_add" id="username_add" type="text" class="validate">
-            <label style="left:96px;" for="username_add">Username</label>
+    width: 80%;" v-model="usercode_add" id="username_add" type="text" class="validate">
+            <label style="left:96px;"  class="edit_respon" for="username_add">ผู้ใช้ (Username)</label>
           </div>
             <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
         กรุณาเลือกหน่วยงาน
@@ -80,7 +80,7 @@
               <font-awesome-icon style="position:absolute;color:white;font-size:25px;top:50%;left:50%;transform:translate(-50%,-50%)" icon="unlock" />
             </div>
             <input style="position:relative;left: 45px;width: 80%;" v-model="password_add" id="Password" type="text" class="validate">
-            <label  style="left:96px;" for="Password">Password</label>
+            <label  style="left:96px;"  class="edit_respon" for="Password">รหัสผ่าน (Password)</label>
           </div>
            <div class="col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
        กรุณาเลือกแผนก
@@ -98,7 +98,7 @@
               <font-awesome-icon style="position:absolute;color:white;font-size:25px;top:50%;left:50%;transform:translate(-50%,-50%)" icon="phone" />
             </div>
             <input style="position:relative;left: 45px;width: 80%;" v-model="phone_add" id="Phone" type="text" class="validate">
-            <label  style="left:96px;" for="Phone">Phone</label>
+            <label  style="left:96px;"  class="edit_respon" for="Phone">เบอร์โทรศัพท์</label>
           </div>
           <div class=" col-12 col-sm-5" style="    margin-left: 22px;position:relative;text-align:center;white-space: nowrap;">
        กรุณาเลือก Profitcenters
@@ -127,7 +127,7 @@
       </div>
     </transition>
     <div class="col-11 mt10" style="position:relative;height:31px;">
-    <div   style="z-index: 2;position: absolute; /* text-align: center; */ /* position: relative; */ transform: translateY(-50%); left: 50%;transform:translateX(-50%)">
+    <div style="z-index: 2;position: absolute; /* text-align: center; */ /* position: relative; */ transform: translateY(-50%); left: 50%;transform:translateX(-50%)">
      <ul class="pagination animationstart3" style="z-index: 2;margin-top:5px;left:50%;transform:translateX(-50%);">
      <!-- <li @click="prevpageb()" class="waves-effect"><a href="#!" style="color:#42a5f5;" ><</a></li> -->
     <!-- <li class="active"><a href="#!"></a></li> -->
@@ -178,7 +178,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class="col-12">
+          <div  class="col-12">
             <div class="row">
             <div class="col-6 col-sm-5 menupm" :style="{top:topuser}" >
         <div  class="card-panel grey lighten-5 z-depth-1 waves-effect" @click="profileuser" style="padding: 0;cursor:pointer;display: block;
@@ -211,7 +211,8 @@
           </div>
       </div>
       <!-- profile -->
-      <div v-show="swich_pro_permis == 0" style="box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);position: relative; top: -3px;border: 1px solid rgba(0, 0, 0, 0.25); padding: 15px 15px;">
+      <div v-show="!profile_active_status" style="color:red;text-align:center;font-size:30px;">คนนี้ได้ลาออกไปแล้ว</div>
+      <div v-show="swich_pro_permis == 0 && profile_active_status" style="box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.75);position: relative; top: -3px;border: 1px solid rgba(0, 0, 0, 0.25); padding: 15px 15px;">
         <div class="col-12 pdleft0">
         <div class="row">
           <div class="col-6">
@@ -300,7 +301,7 @@
         </div>
       <!-- profile -->
        <!-- permission -->
-      <div v-show="swich_pro_permis == 1">
+      <div v-show="swich_pro_permis == 1 && profile_active_status">
         <table class="highlight animationtext2 bordercolor" style="margin-bottom:20px;">
         <thead>
           <tr >
@@ -312,13 +313,13 @@
         </thead>
         <tbody >
           <tr :key="val.id" id="center" v-for="(val,index) in objectapp">
-              <td style="text-align:center;">{{ index+1 }}</td>
+            <td style="text-align:center;">{{ index+1 }}</td>
             <td style="text-align:center;">{{ val.app_name}}</td>
             <td style="text-align:center;">{{val.role_name}}</td>
-            <td style="position:relative"> 
+            <td style="position:relative" > 
               <font-awesome-icon style="position: absolute; right: 50px; top: 50%; z-index: 99; transform: translateY(-50%);" icon="pencil-alt" />
               <select v-model="editrole" @change="savepermission(val,index)"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{ val.role_name }}</option>
+        <option v-for="val in roleobj" v-show="val.active_status" :key="val.id" :value="val.id">{{ val.role_name }}</option>
       </select></td>
             </tr>
         </tbody>
@@ -332,19 +333,19 @@
           <tr >
             <th>ชื่อแอพ</th>
             <th>สิทธิ</th>
-              <th>เพิ่ม</th>
+            <th>เพิ่ม</th>
           </tr>
         </thead>
         <tbody >
           <tr class="nohover" id="center" >
               <td style="text-align:center">
                  <select v-model="selectaddapp"  class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="value in allappselect" v-if="value.app_code != ''" :key="value.id" :value="value.id">{{value.app_name}}</option>
+        <option v-for="value in allappselect" v-if="value.app_code != ''" v-show="value.active_status" :key="value.id" :value="value.id">{{value.app_name}}</option>
       </select>
               </td>
               <td style="text-align:center">
       <select v-model="selectaddrole"   class="form-control selectadduser" style="width:90%;" name="sellist1">
-        <option v-for="val in roleobj" :key="val.id" :value="val.id">{{val.role_name}}</option>
+        <option v-for="val in roleobj" v-show="val.active_status" :key="val.id" :value="val.id">{{val.role_name}}</option>
       </select></td>
              <td style="text-align:center;">
                <button @click="addperinapp" type="button" class="btn green accent-2" style="position: relative;" >เพิ่ม</button>
@@ -359,9 +360,9 @@
       </div>
       </div>
       <div class="modal-footer swing-in-right-fwd5">
-         <button @click="showper = !showper "  v-show="swich_pro_permis == 1" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >เพิ่มสิทธิ</button>
+         <button @click="showper = !showper "  v-show="swich_pro_permis == 1 && profile_active_status" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >เพิ่มสิทธิ</button>
         <!-- <button type="button" class="btn orange darken-3" data-dismiss="modal">Close</button> -->
-        <button @click="saveprofile" v-show="swich_pro_permis == 0" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >บันทึกข้อมูล</button>
+        <button @click="saveprofile" v-show="swich_pro_permis == 0 && profile_active_status" type="button" class="btn green accent-2" style="right: 25px; position: relative;" >บันทึกข้อมูล</button>
       </div>
     </div>
   </div>
