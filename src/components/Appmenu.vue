@@ -35,7 +35,7 @@
         <table class="highlight bordercolor mt10" style="margin-top:25px;float:left;">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>รหัส</th>
               <th>ชื่อแอพ</th>
               <th>รายละเอียด</th>
               <th>สถานะ</th>

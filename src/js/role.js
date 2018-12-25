@@ -30,6 +30,7 @@ export default {
           if (result.status == 'success') {
             // console.log('login :' + JSON.stringify(result))
             this.roleobj = result.data
+            console.log(result.data)
           }
         },
         (error) => {

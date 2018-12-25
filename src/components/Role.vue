@@ -32,6 +32,7 @@
      <table class="highlight animationstart3 bordercolor mt10" style="margin-top:25px;float:left;">
         <thead>
           <tr >
+            <th>รหัส</th>
             <th>ชื่อ Role</th>
             <th>รายละเอียด</th>
             <th>สถานะ</th>
@@ -40,6 +41,7 @@
         </thead>  
         <tbody>
           <tr v-for="val in roleobj" >
+            <td>{{val.id}}</td>
             <td style="cursor:pointer" @click="editrole(val)" data-toggle="modal" data-target="#editrole">{{val.role_name}}</td>
              <td style="cursor:pointer" @click="editrole(val)" data-toggle="modal" data-target="#editrole">{{val.description}}</td>
              <td style="cursor:pointer" @click="onrole(val,val.active_status)"> <div :class="bg = 'status'+val.active_status" style="width:100%;height:100%;text-align:center;">{{ changestatus(val.active_status) }}</div></td>
