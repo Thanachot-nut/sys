@@ -4,13 +4,14 @@ import Vueaxios from 'vue-axios'
 
 Vue.use(Vueaxios, axios)
 
-const URL = 'http://venus.nopadol.com'
+const URL1 = 'http://venus.nopadol.com'
+const URL = 'https://sys.nopadol.com'
 // const URL = 'http://api.nopadol.com'
 // const URL2 = 'http://venus'
 
 export default {
   signin (user, pass, success, error) {
-    Vue.axios.get(URL + ':9000/login?access_token=aaaa&usercode=' + user + '&password=' + pass + '&appid=6').then(
+    Vue.axios.get(URL + '/login?access_token=aaaa&usercode=' + user + '&password=' + pass + '&appid=6').then(
       (response) => {
         success(response.data)
       },
@@ -19,7 +20,7 @@ export default {
       })
   },
   getuser (user, success, error) {
-    Vue.axios.get(URL + ':9000/user?access_token=aaaa&user_code=' + user).then(
+    Vue.axios.get(URL + '/user?access_token=aaaa&user_code=' + user).then(
       (response) => {
         success(response.data)
       },
@@ -28,7 +29,7 @@ export default {
       })
   },
   insert_user (data, success, error) {
-    Vue.axios.post(URL + ':9000/user', JSON.stringify(data)).then(
+    Vue.axios.post(URL + '/user', JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -37,7 +38,7 @@ export default {
       })
   },
   showapp_app (success, error) {
-    Vue.axios.get(URL + ':9000/apps?access_token=').then(
+    Vue.axios.get(URL + '/apps?access_token=').then(
       (response) => {
         success(response.data)
       },
@@ -46,7 +47,7 @@ export default {
       })
   },
   searchkeyword (data, success, error) {
-    Vue.axios.get(URL + ':9000/apps/search?access_token=aaaa&keyword=' + data).then(
+    Vue.axios.get(URL + '/apps/search?access_token=aaaa&keyword=' + data).then(
       (response) => {
         success(response.data)
       },
@@ -55,7 +56,7 @@ export default {
       })
   },
   addapp (data, success, error) {
-    Vue.axios.post(URL + ':9000/app', JSON.stringify(data)).then(
+    Vue.axios.post(URL + '/app', JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -64,7 +65,7 @@ export default {
       })
   },
   turnonapp (data, success, error) {
-    Vue.axios.put(URL + ':9000/app/disable', JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/app/disable', JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -73,7 +74,7 @@ export default {
       })
   },
   showrolealls (data, success, error) {
-    Vue.axios.get(URL + ':9000/roles/search?access_token=aaaa&keyword=' + data).then(
+    Vue.axios.get(URL + '/roles/search?access_token=aaaa&keyword=' + data).then(
       (response) => {
         success(response.data)
       },
@@ -82,7 +83,7 @@ export default {
       })
   },
   showalluser (data, success, error) {
-    Vue.axios.get(URL + ':9000/users/search?access_token=aaaa&keyword=' + data).then(
+    Vue.axios.get(URL + '/users/search?access_token=aaaa&keyword=' + data).then(
       (response) => {
         success(response.data)
       },
@@ -91,7 +92,7 @@ export default {
       })
   },
   changestatusrole (data, success, error) {
-    Vue.axios.put(URL + ':9000/role/disable', JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/role/disable', JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -100,7 +101,7 @@ export default {
       })
   },  
   changestatususer (data, success, error) {
-    Vue.axios.put(URL + ':9000/user/disable', JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/user/disable', JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -109,7 +110,7 @@ export default {
       })
   },  
   showinfomodal(data, success, error) {
-    Vue.axios.get(URL + ':9000/menu/app_id?access_token=aaaa&app_id=' + data).then(
+    Vue.axios.get(URL + '/menu/app_id?access_token=aaaa&app_id=' + data).then(
       (response) => {
         success(response.data)
       },
@@ -118,7 +119,7 @@ export default {
       })
   },  
   changestatusmodal(data, success, error) {
-    Vue.axios.put(URL + ':9000/menu/disable' , JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/menu/disable' , JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -127,7 +128,7 @@ export default {
       })
   },
   insertmenu(data, success, error) {
-    Vue.axios.post(URL + ':9000/menu' , JSON.stringify(data)).then(
+    Vue.axios.post(URL + '/menu' , JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -136,7 +137,7 @@ export default {
       })
   },      
   callbranch( success, error) {
-    Vue.axios.get(URL + ':9000/branchs?access_token=aaaa').then(
+    Vue.axios.get(URL + '/branchs?access_token=aaaa').then(
       (response) => {
         success(response.data)
       },
@@ -145,7 +146,7 @@ export default {
       })
   }, 
   calldepartments(success, error) {
-    Vue.axios.get(URL + ':9000/departments?access_token=aaaa').then(
+    Vue.axios.get(URL + '/departments?access_token=aaaa').then(
       (response) => {
         success(response.data)
       },
@@ -154,7 +155,7 @@ export default {
       })
   }, 
   callexperts(success, error) {
-    Vue.axios.get(URL + ':9000/experts?access_token=aaaa').then(
+    Vue.axios.get(URL + '/experts?access_token=aaaa').then(
       (response) => {
         success(response.data)
       },
@@ -163,7 +164,7 @@ export default {
       })
   },
   callprofitcenters(success, error) {
-    Vue.axios.get(URL + ':9000/profitcenters?access_token=aaaa').then(
+    Vue.axios.get(URL + '/profitcenters?access_token=aaaa').then(
       (response) => {
         success(response.data)
       },
@@ -172,7 +173,7 @@ export default {
       })
   },
   callappall(success, error) {
-    Vue.axios.get(URL + ':9000/apps?access_token=aaaa').then(
+    Vue.axios.get(URL + '/apps?access_token=aaaa').then(
       (response) => {
         success(response.data)
       },
@@ -181,7 +182,7 @@ export default {
       })
   },
   apptorole(data,success, error) {
-    Vue.axios.get(URL + ':9000/app/role?access_token=aaaa&app_id=' + data).then(
+    Vue.axios.get(URL + '/app/role?access_token=aaaa&app_id=' + data).then(
       (response) => {
         success(response.data)
       },
@@ -190,7 +191,7 @@ export default {
       })
   },
   permissionall(role,app,success, error) {
-    Vue.axios.get(URL + ':9000/permissions?access_token=aaaa&app_id='+app+'&role_id='+role).then(
+    Vue.axios.get(URL + '/permissions?access_token=aaaa&app_id='+app+'&role_id='+role).then(
       (response) => {
         success(response.data)
       },
@@ -199,7 +200,7 @@ export default {
       })
   },
   updatepermis_all(data,success, error) {
-    Vue.axios.put(URL + ':9000/permission', data).then(
+    Vue.axios.put(URL + '/permission', data).then(
       (response) => {
         success(response.data)
       },
@@ -208,7 +209,7 @@ export default {
       })
   },
   saveapprole(data,success, error) {
-    Vue.axios.post(URL + ':9000/app/role',JSON.stringify(data)).then(
+    Vue.axios.post(URL + '/app/role',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -217,7 +218,7 @@ export default {
       })
   },
   addrole(data,success, error) {
-    Vue.axios.post(URL + ':9000/role',JSON.stringify(data)).then(
+    Vue.axios.post(URL + '/role',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -226,7 +227,7 @@ export default {
       })
   },
   editprofile(data,success, error) {
-    Vue.axios.put(URL + ':9000/user',JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/user',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -235,7 +236,7 @@ export default {
       })
   },
   callroleinuser(data,success, error) {
-    Vue.axios.get(URL + ':9000/userroles?access_token=aaaa&user_id='+data).then(
+    Vue.axios.get(URL + '/userroles?access_token=aaaa&user_id='+data).then(
       (response) => {
         success(response.data)
       },
@@ -244,7 +245,7 @@ export default {
       })
   },
   edituserrole(data,success, error) {
-    Vue.axios.put(URL + ':9000/userrole',JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/userrole',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -253,7 +254,7 @@ export default {
       })
   },
   insertuserrole(data,success, error) {
-    Vue.axios.post(URL + ':9000/userrole',JSON.stringify(data)).then(
+    Vue.axios.post(URL + '/userrole',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -262,7 +263,7 @@ export default {
       })
   },
   editrole(data,success, error) {
-    Vue.axios.put(URL + ':9000/role',JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/role',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -271,7 +272,7 @@ export default {
       })
   },
   updateapp(data,success, error) {
-    Vue.axios.put(URL + ':9000/app',JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/app',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },
@@ -280,7 +281,7 @@ export default {
       })
   },
   updatemenu_a(data,success, error) {
-    Vue.axios.put(URL + ':9000/menu',JSON.stringify(data)).then(
+    Vue.axios.put(URL + '/menu',JSON.stringify(data)).then(
       (response) => {
         success(response.data)
       },

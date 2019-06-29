@@ -106,8 +106,9 @@ export default {
           console.log('page :' + page)
           this.page = parseInt(page) + 1
 
+          console.log(result)
           this.objuser = result.slice(this.prevpage, this.nextpage)
-       
+          console.log(this.objuser)
           
         },
         (error) => {

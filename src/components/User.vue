@@ -153,7 +153,7 @@
           </tr>
         </thead>
         <tbody >
-          <tr v-for="data in objuser"  >
+          <tr v-for="data in objuser">
             <td style="text-align:center"  data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.sale_code}}</td>
             <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.user_name}}</td>
             <td data-toggle="modal" data-target="#detailuser" @click="detailprofile(data)">{{ data.user_code}}</td>
